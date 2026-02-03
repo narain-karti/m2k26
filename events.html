@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" content="7.0-events-redesign">
+    <title>Events | MEREDITH 2K26</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* V7 Events Page Specific Styles */
+        .event-card {
+            background: linear-gradient(135deg, rgba(5, 15, 30, 0.9), rgba(10, 25, 50, 0.8));
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-left: 4px solid var(--cyan);
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1), transparent);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
+            border-color: var(--cyan);
+        }
+
+        .event-card .icon {
+            font-size: 2.5rem;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .event-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .event-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .event-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .event-card .tag {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .access-btn {
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            padding: 12px 30px;
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .access-btn:hover {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Modal V7 */
+        .modal-content-v7 {
+            background: linear-gradient(180deg, #0a1628, #050d1a);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .modal-header {
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.2), transparent);
+            padding: 30px 40px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-header h2 {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--cyan);
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 30px 40px;
+        }
+
+        .modal-section {
+            margin-bottom: 30px;
+        }
+
+        .modal-section h4 {
+            color: var(--cyan);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            color: #c7d2fe;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .modal-footer {
+            background: rgba(0, 240, 255, 0.05);
+            padding: 20px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding: 20px;
+            }
+
+            .modal-header h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="parallax-bg"></div>
+
+    <nav>
+        <div class="logo">MEREDITH <span>2K26</span></div>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div style="height: 120px;"></div>
+
+        <div class="section-header radial-glow" style="text-align:center;">
+            <h1 style="font-size: 2.5rem; color: #fff;">EVENT PROTOCOLS</h1>
+            <p style="color: var(--cyan); letter-spacing: 3px; margin-top:10px;">COMPLETE ROSTER & DIRECTIVES</p>
+        </div>
+
+        <!-- TECHNICAL -->
+        <h2
+            style="color: var(--cyan); text-align:center; margin: 60px 0 30px; font-family: var(--font-head); letter-spacing: 3px;">
+            <i class="fa-solid fa-microchip"></i> TECHNICAL EVENTS
+        </h2>
+        <div class="full-events-grid">
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-file-lines icon"></i>
+                <h3>Paper Presentation</h3>
+                <p>Present innovative research in a structured academic format. Showcase your analytical thinking.</p>
+                <div class="tags">
+                    <span class="tag">Team: Max 2</span>
+                    <span class="tag">8-10 Mins</span>
+                </div>
+                <button class="access-btn" data-key="paper">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-palette icon"></i>
+                <h3>Poster Presentation</h3>
+                <p>Visually communicate ideas through creative and informative posters.</p>
+                <div class="tags">
+                    <span class="tag">Individual/Team</span>
+                    <span class="tag">A1 Size</span>
+                </div>
+                <button class="access-btn" data-key="poster">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-bolt icon"></i>
+                <h3>Technical Quiz</h3>
+                <p>Fast-paced quiz to test technical knowledge and logical thinking.</p>
+                <div class="tags">
+                    <span class="tag">Team: 2</span>
+                    <span class="tag">Multi-Round</span>
+                </div>
+                <button class="access-btn" data-key="quiz">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-lightbulb icon"></i>
+                <h3>UDYAT</h3>
+                <p>Innovation-driven event to propose solutions to real-world problems.</p>
+                <div class="tags">
+                    <span class="tag">Idea Pitch</span>
+                    <span class="tag">Innovation</span>
+                </div>
+                <button class="access-btn" data-key="udyat">View Protocol</button>
+            </div>
+
+        </div>
+
+        <!-- NON-TECHNICAL -->
+        <h2
+            style="color: var(--cyan); text-align:center; margin: 80px 0 30px; font-family: var(--font-head); letter-spacing: 3px;">
+            <i class="fa-solid fa-users"></i> NON-TECHNICAL EVENTS
+        </h2>
+        <div class="full-events-grid">
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-comments icon"></i>
+                <h3>Debate Competition</h3>
+                <p>Express opinions, challenge perspectives, and engage in intellectual discussions.</p>
+                <div class="tags">
+                    <span class="tag">Individual</span>
+                    <span class="tag">Spot Topic</span>
+                </div>
+                <button class="access-btn" data-key="debate">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-star icon"></i>
+                <h3>Show Your Talent</h3>
+                <p>A stage to showcase talents beyond academics. Singing, dancing, comedy.</p>
+                <div class="tags">
+                    <span class="tag">Solo/Group</span>
+                    <span class="tag">Time Limit</span>
+                </div>
+                <button class="access-btn" data-key="talent">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-magnifying-glass icon"></i>
+                <h3>Explore The Topic</h3>
+                <p>On-the-spot topic exploration and explanation event.</p>
+                <div class="tags">
+                    <span class="tag">Extempore</span>
+                    <span class="tag">Quick Thinking</span>
+                </div>
+                <button class="access-btn" data-key="explore">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-video icon"></i>
+                <h3>Content Creation</h3>
+                <p>Create engaging digital content: Reels, posters, short videos.</p>
+                <div class="tags">
+                    <span class="tag">Digital</span>
+                    <span class="tag">Creative</span>
+                </div>
+                <button class="access-btn" data-key="content">View Protocol</button>
+            </div>
+
+        </div>
+
+        <!-- FUN -->
+        <h2
+            style="color: var(--cyan); text-align:center; margin: 80px 0 30px; font-family: var(--font-head); letter-spacing: 3px;">
+            <i class="fa-solid fa-gamepad"></i> FUN & GAMING
+        </h2>
+        <div class="full-events-grid">
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-crosshairs icon"></i>
+                <h3>Free Fire Tournament</h3>
+                <p>Competitive gaming event for Free Fire enthusiasts. Squad up!</p>
+                <div class="tags">
+                    <span class="tag">E-Sports</span>
+                    <span class="tag">Squad/Solo</span>
+                </div>
+                <button class="access-btn" data-key="game">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-utensils icon"></i>
+                <h3>Eat As Possible</h3>
+                <p>Fun challenge: Eat the maximum quantity within a time limit!</p>
+                <div class="tags">
+                    <span class="tag">Fun</span>
+                    <span class="tag">Speed</span>
+                </div>
+                <button class="access-btn" data-key="eat">View Protocol</button>
+            </div>
+
+            <div class="event-card tech-panel">
+                <i class="fa-solid fa-dumbbell icon"></i>
+                <h3>Fitness Challenge</h3>
+                <p>Physical endurance competition. Push-ups, planks, and more.</p>
+                <div class="tags">
+                    <span class="tag">Endurance</span>
+                    <span class="tag">Strength</span>
+                </div>
+                <button class="access-btn" data-key="fit">View Protocol</button>
+            </div>
+
+        </div>
+
+        <div style="height: 100px;"></div>
+
+    </main>
+
+    <footer
+        style="background: black; padding: 15px 0; text-align: center; border-top: 1px solid #1a1a1a; position: relative; z-index: 10;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <img src="footer-logos.png" alt="Accreditation Logos"
+                style="max-width: 90%; height: auto; max-height: 100px; object-fit: contain;">
+        </div>
+    </footer>
+
+
+    <!-- Modal V7 - FIXED with Inline Critical Styles -->
+    <div id="event-modal"
+        style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99999; display: none; justify-content: center; align-items: center;">
+        <!-- Overlay -->
+        <div class="modal-overlay"
+            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);">
+        </div>
+        <!-- Content Box -->
+        <div class="modal-content modal-content-v7"
+            style="position: relative; z-index: 10; background: linear-gradient(180deg, #0a1628, #050d1a); border: 1px solid #00f0ff; max-width: 850px; width: 92%; max-height: 88vh; overflow-y: auto; border-radius: 8px; box-shadow: 0 0 100px rgba(0,240,255,0.4);">
+            <div class="modal-header">
+                <button class="close-modal"
+                    style="position:absolute; top:15px; right:20px; background:none; border:none; color:#00f0ff; font-size:2.5rem; cursor:pointer; line-height:1;">&times;</button>
+                <h2 id="modal-title">EVENT TITLE</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section" id="sec-overview">
+                    <h4><i class="fa-solid fa-circle-info"></i> Overview</h4>
+                    <p id="modal-overview"></p>
+                </div>
+                <div class="modal-section" id="sec-objective">
+                    <h4><i class="fa-solid fa-bullseye"></i> Objective</h4>
+                    <ul id="modal-objective"></ul>
+                </div>
+                <div class="modal-section" id="sec-eligibility">
+                    <h4><i class="fa-solid fa-user-check"></i> Eligibility</h4>
+                    <ul id="modal-eligibility"></ul>
+                </div>
+                <div class="modal-section" id="sec-format">
+                    <h4><i class="fa-solid fa-list-ol"></i> Format & Duration</h4>
+                    <ul id="modal-format"></ul>
+                </div>
+                <div class="modal-section" id="sec-rules">
+                    <h4><i class="fa-solid fa-gavel"></i> Rules</h4>
+                    <ul id="modal-rules"></ul>
+                </div>
+                <div class="modal-section" id="sec-judging">
+                    <h4><i class="fa-solid fa-award"></i> Judging Criteria</h4>
+                    <ul id="modal-judging"></ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p style="color: #888; font-size: 0.9rem;">* Organizers' decisions are final and binding.</p>
+                <button class="access-btn" style="margin-top: 15px; background: #00f0ff; color: #000;">REGISTER
+                    NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+    </script>
+</body>
+
+</html>

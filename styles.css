@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Michroma&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&family=Syncopate:wght@400;700&display=swap');
+
+:root {
+    --navy-deep: #02040a;
+    --navy-glass: rgba(2, 4, 10, 0, 85);
+    --cyan: #00f0ff;
+    --cyan-dim: rgba(0, 240, 255, 0.2);
+    --white: #ffffff;
+
+    --font-head: 'Syncopate', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-tech-1: 'Orbitron', sans-serif;
+    --font-tech-2: 'Audiowide', cursive;
+    --font-tech-3: 'Michroma', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--navy-deep);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(0.4) contrast(1.1);
+}
+
+.parallax-bg {
+    position: fixed;
+    inset: 0;
+    height: 120%;
+    background-image:
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- GLITCH EFFECT --- */
+/* The main container needs position relative for pseudos */
+.hero-title-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+h1.hero-title.glitch {
+    position: relative;
+    font-family: var(--font-head);
+    font-size: 5vw;
+    color: var(--white);
+    letter-spacing: 5px;
+    z-index: 1;
+    /* Remove the old stroke/shadow here to handle it in layers or keep nice base */
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+/* Glitch Layers */
+h1.hero-title.glitch::before,
+h1.hero-title.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    /* Keep video visible */
+    overflow: hidden;
+}
+
+h1.hero-title.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-1 5s infinite linear alternate-reverse;
+}
+
+h1.hero-title.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip: rect(30px, 9999px, 10px, 0);
+    }
+
+    5% {
+        clip: rect(70px, 9999px, 90px, 0);
+    }
+
+    10% {
+        clip: rect(20px, 9999px, 50px, 0);
+    }
+
+    15% {
+        clip: rect(80px, 9999px, 10px, 0);
+    }
+
+    20% {
+        clip: rect(10px, 9999px, 40px, 0);
+    }
+
+    25% {
+        clip: rect(40px, 9999px, 10px, 0);
+    }
+
+    30% {
+        clip: rect(50px, 9999px, 90px, 0);
+    }
+
+    35% {
+        clip: rect(20px, 9999px, 60px, 0);
+    }
+
+    40% {
+        clip: rect(80px, 9999px, 30px, 0);
+    }
+
+    45% {
+        clip: rect(10px, 9999px, 70px, 0);
+    }
+
+    50% {
+        clip: rect(30px, 9999px, 10px, 0);
+    }
+
+    55% {
+        clip: rect(60px, 9999px, 90px, 0);
+    }
+
+    60% {
+        clip: rect(20px, 9999px, 40px, 0);
+    }
+
+    65% {
+        clip: rect(40px, 9999px, 10px, 0);
+    }
+
+    70% {
+        clip: rect(70px, 9999px, 40px, 0);
+    }
+
+    75% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    80% {
+        clip: rect(50px, 9999px, 20px, 0);
+    }
+
+    85% {
+        clip: rect(20px, 9999px, 60px, 0);
+    }
+
+    90% {
+        clip: rect(70px, 9999px, 30px, 0);
+    }
+
+    95% {
+        clip: rect(40px, 9999px, 80px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(10px, 9999px, 80px, 0);
+    }
+
+    5% {
+        clip: rect(40px, 9999px, 10px, 0);
+    }
+
+    10% {
+        clip: rect(80px, 9999px, 40px, 0);
+    }
+
+    15% {
+        clip: rect(20px, 9999px, 70px, 0);
+    }
+
+    20% {
+        clip: rect(60px, 9999px, 20px, 0);
+    }
+
+    25% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    30% {
+        clip: rect(50px, 9999px, 10px, 0);
+    }
+
+    35% {
+        clip: rect(30px, 9999px, 80px, 0);
+    }
+
+    40% {
+        clip: rect(70px, 9999px, 20px, 0);
+    }
+
+    45% {
+        clip: rect(20px, 9999px, 60px, 0);
+    }
+
+    50% {
+        clip: rect(80px, 9999px, 40px, 0);
+    }
+
+    55% {
+        clip: rect(10px, 9999px, 70px, 0);
+    }
+
+    60% {
+        clip: rect(40px, 9999px, 20px, 0);
+    }
+
+    65% {
+        clip: rect(70px, 9999px, 30px, 0);
+    }
+
+    70% {
+        clip: rect(20px, 9999px, 80px, 0);
+    }
+
+    75% {
+        clip: rect(60px, 9999px, 10px, 0);
+    }
+
+    80% {
+        clip: rect(30px, 9999px, 50px, 0);
+    }
+
+    85% {
+        clip: rect(80px, 9999px, 20px, 0);
+    }
+
+    90% {
+        clip: rect(10px, 9999px, 60px, 0);
+    }
+
+    95% {
+        clip: rect(50px, 9999px, 30px, 0);
+    }
+
+    100% {
+        clip: rect(20px, 9999px, 70px, 0);
+    }
+}
+
+
+/* --- REST OF CSS (Safe) --- */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent);
+}
+
+.nav-spacer {
+    display: none;
+}
+
+.nav-center-logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.nav-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav-logo:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.7));
+    transform: scale(1.05);
+}
+
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-head);
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-title {
+    font-family: var(--font-head);
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.nav-title span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--cyan);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 30px;
+        border-bottom: 1px solid var(--cyan);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-center-logos {
+        gap: 12px;
+    }
+
+    .nav-logo {
+        height: 35px;
+    }
+
+    .nav-title {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        padding: 10px 3%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-logo {
+        height: 50px;
+    }
+
+    .nav-center-logos {
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .nav-logo {
+        height: 55px;
+    }
+
+    .nav-center-logos {
+        gap: 22px;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1441px) {
+    .nav-logo {
+        height: 70px;
+    }
+
+    .nav-center-logos {
+        gap: 30px;
+    }
+}
+
+/* Updated Hero with Glitch Compatibility */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding-top: 60px;
+    /* Offset for header */
+}
+
+/* Hero Logos */
+.hero-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.hero-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.hero-logo:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.7));
+    transform: scale(1.08);
+}
+
+/* Responsive Hero Logos */
+@media (max-width: 768px) {
+    .hero-logos {
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .hero-logo {
+        height: 35px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-logos {
+        gap: 20px;
+    }
+
+    .hero-logo {
+        height: 45px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .hero-logo {
+        height: 70px;
+    }
+
+    .hero-logos {
+        gap: 35px;
+    }
+}
+
+/* Visibility Wrapper */
+.radial-glow {
+    position: relative;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.radial-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    filter: blur(30px);
+}
+
+/* Sponsors Marquee */
+.sponsors-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 30px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.sponsors-marquee::before,
+.sponsors-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.sponsors-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(2, 4, 10, 1), transparent);
+}
+
+.sponsors-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(2, 4, 10, 1), transparent);
+}
+
+.sponsors-track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    animation: marquee 15s linear infinite;
+    width: max-content;
+}
+
+.sponsors-track:hover {
+    animation-play-state: paused;
+}
+
+.sponsor-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(30%) brightness(1.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.sponsor-logo:hover {
+    filter: grayscale(0%) brightness(1.2);
+    transform: scale(1.1);
+}
+
+.sponsor-logo-large {
+    height: 120px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Sponsors */
+@media (max-width: 768px) {
+    .sponsor-logo {
+        height: 50px;
+    }
+
+    .sponsors-track {
+        gap: 50px;
+    }
+
+    .sponsors-marquee::before,
+    .sponsors-marquee::after {
+        width: 50px;
+    }
+}
+
+
+/* Other Panels */
+.tech-panel {
+    background: rgba(5, 10, 25, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-left: 3px solid var(--cyan);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.tech-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 240, 255, 0.15);
+    border-color: rgba(0, 240, 255, 0.5);
+}
+
+.tech-panel h3 {
+    margin-bottom: 10px;
+    color: var(--cyan);
+    font-size: 1.4rem;
+}
+
+.font-t1 {
+    font-family: var(--font-tech-1);
+    letter-spacing: 1px;
+}
+
+.font-t2 {
+    font-family: var(--font-tech-2);
+    text-transform: uppercase;
+}
+
+.font-t3 {
+    font-family: var(--font-tech-3);
+    font-weight: bold;
+}
+
+.full-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: var(--cyan);
+    margin: 10px auto;
+    box-shadow: 0 0 10px var(--cyan);
+}
+
+.details-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 2px;
+}
+
+.details-btn:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+/* Modal Container - Hidden by default */
+#event-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Overlay - Dark background */
+#event-modal .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Content Box - Sits above overlay */
+#event-modal .modal-content {
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(180deg, #0a1628, #050d1a);
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 80px rgba(0, 240, 255, 0.3);
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* When modal is open */
+body.modal-open #event-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.modal-open #event-modal .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+/* Prevent body scroll when modal open */
+body.modal-open {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.content-section {
+    padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+    h1.hero-title.glitch {
+        font-size: 3rem;
+    }
+
+    .full-events-grid {
+        grid-template-columns: 1fr;
+    }
+}

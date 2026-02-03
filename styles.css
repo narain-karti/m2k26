@@ -780,3 +780,80 @@ body.modal-open {
         grid-template-columns: 1fr;
     }
 }
+
+/* Credits Section */
+.credits-section {
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.credits-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.credits-text {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.credits-logo {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+    transition: all 0.3s ease;
+}
+
+.credits-logo:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
+    transform: scale(1.05);
+}
+
+.credits-contact {
+    margin-top: 15px;
+}
+
+.credits-contact p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.credits-info {
+    color: var(--cyan) !important;
+    font-size: 1rem !important;
+    font-weight: 600;
+}
+
+.credits-info i {
+    margin-right: 8px;
+}
+
+.credits-divider {
+    margin: 0 15px;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .credits-logo {
+        height: 60px;
+    }
+
+    .credits-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .credits-divider {
+        display: none;
+    }
+}

@@ -151,6 +151,65 @@ function doPost(e) {
             eventSheet.appendRow(rowData);
         });
 
+        // =========================================================================
+        // SEND CONFIRMATION EMAIL
+        // =========================================================================
+        try {
+            const emailSubject = `Confirmation: Your Registration for MEREDITH 2K26`;
+            const emailBody = `
+Dear ${data.fullName},
+
+Congratulations! You have successfully registered for MEREDITH 2K26 Symposium.
+
+Registration Summary:
+------------------------------------------
+Full Name: ${data.fullName}
+College: ${data.collegeName}
+Selected Events: ${selectedEventsStr}
+Registration Time: ${data.timestamp}
+------------------------------------------
+
+We are thrilled to have you join us. Please keep this email for your records. If you have any questions, feel free to contact the organizing committee.
+
+Best Regards,
+Organizing Committee
+MEREDITH 2K26
+        `.trim();
+
+            const htmlBody = `
+            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #050a19; color: #ffffff; padding: 30px; border: 2px solid #00f0ff; border-radius: 15px;">
+                <h2 style="color: #00f0ff; text-align: center; border-bottom: 2px solid #00f0ff; padding-bottom: 10px;">Registration Successful!</h2>
+                <p>Dear <strong>${data.fullName}</strong>,</p>
+                <p>We are excited to confirm your participation in <strong>MEREDITH 2K26</strong>. You have successfully registered for the following events:</p>
+                
+                <div style="background: rgba(0, 240, 255, 0.1); padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">🛡️ <strong>Selected Events:</strong> <span style="color: #00f0ff;">${selectedEventsStr}</span></li>
+                        <li style="margin-bottom: 10px;">🏫 <strong>College:</strong> ${data.collegeName}</li>
+                        <li style="margin-bottom: 10px;">📅 <strong>Date:</strong> ${data.timestamp}</li>
+                    </ul>
+                </div>
+                
+                <p>Please make sure to arrive at the venue on time. We look forward to an electrifying experience!</p>
+                
+                <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                    <p>Best Regards,<br><strong>Team MEREDITH 2K26</strong></p>
+                </div>
+            </div>
+        `;
+
+            MailApp.sendEmail({
+                to: data.email,
+                subject: emailSubject,
+                body: emailBody, // Fallback plain text
+                htmlBody: htmlBody
+            });
+
+        } catch (emailError) {
+            console.error("Confirmation Email Error:", emailError);
+            // Do not throw error here, so registration still succeeds even if email fails
+        }
+
         // Return success response
         return ContentService
             .createTextOutput(JSON.stringify({

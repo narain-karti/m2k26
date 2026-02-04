@@ -597,7 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * STEP 3: Copy the Web App URL and paste it below
      * ========================================================================
      */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhzQT2PtsZUPg-iFCzwufasfjhDxfpsuTKcoD4yGAToUUMh3Z7z4QnW4rmMdIVuuvAxQ/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuNVR0fngs-Lg-JAUvSwXxfW5GsUWebgHWMfhwpx-bvnXg66_UyibiHcioPQZwgtrr/exec";
 
     // Get form elements
     const registrationForm = document.getElementById("symposium-registration-form");

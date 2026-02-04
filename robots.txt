@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://meredith-2k26.vercel.app/sitemap.xml
+Sitemap: https://m2k26.vercel.app/sitemap.xml

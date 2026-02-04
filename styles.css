@@ -478,6 +478,9 @@ nav {
     filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
     transition: all 0.3s ease;
     border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    opacity: 1;
 }
 
 .hero-logo:hover {
@@ -597,7 +600,7 @@ nav {
 }
 
 .sponsor-logo-large {
-    height: 120px;
+    height: 200px;
 }
 
 @keyframes marquee {
@@ -855,5 +858,518 @@ body.modal-open {
 
     .credits-divider {
         display: none;
+    }
+}
+
+/* =========================================================================
+   REGISTRATION FORM STYLES - Ultra Graphical Edition
+   ========================================================================= */
+
+.registration-form-container {
+    background: rgba(5, 10, 25, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 50px 40px;
+    position: relative;
+    z-index: 1;
+    box-shadow:
+        0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.registration-form-container::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(8px);
+    animation: rainbow-border 15s linear infinite;
+    opacity: 0.9;
+    border-radius: 22px;
+}
+
+@keyframes rainbow-border {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.registration-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Form Layout */
+.registration-form {
+    margin-top: 30px;
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.form-section-title {
+    font-family: var(--font-tech-1);
+    font-size: 1.1rem;
+    color: var(--cyan);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-section-title i {
+    font-size: 1.2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Form Groups */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.required {
+    color: #ff4757;
+}
+
+.optional {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+/* Electric Input Wrapper */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px 18px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 240, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Electrifying Border Effect */
+.electric-input .electric-border {
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--cyan) 25%,
+            #00ff88 50%,
+            var(--cyan) 75%,
+            transparent 100%);
+    background-size: 200% 100%;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    filter: blur(4px);
+}
+
+.electric-input:focus-within .electric-border {
+    opacity: 1;
+    animation: electric-flow 1.5s linear infinite;
+}
+
+.electric-input:focus-within input {
+    border-color: var(--cyan);
+    box-shadow:
+        0 0 20px rgba(0, 240, 255, 0.3),
+        0 0 40px rgba(0, 240, 255, 0.1),
+        inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+@keyframes electric-flow {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Electric Pulse on Typing */
+.electric-input.typing input {
+    animation: electric-pulse 0.15s ease;
+}
+
+@keyframes electric-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.6), 0 0 60px rgba(0, 255, 136, 0.3);
+    }
+}
+
+/* Error States */
+.error-message {
+    color: #ff4757;
+    font-size: 0.85rem;
+    min-height: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-wrapper.error input {
+    border-color: #ff4757;
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.3);
+}
+
+/* Event Checkboxes Grid */
+.events-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* Custom Checkbox */
+.event-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-checkbox:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    background: rgba(0, 240, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.event-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(0, 240, 255, 0.4);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.event-checkbox input:checked+.checkbox-custom {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.event-checkbox input:checked+.checkbox-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.event-checkbox input:checked~.checkbox-label {
+    color: var(--cyan);
+}
+
+.checkbox-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease;
+}
+
+/* Checkbox Neon Glow Effect on Hover */
+.event-checkbox::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(0, 240, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-checkbox:hover::before {
+    opacity: 1;
+}
+
+/* Submit Section */
+.form-submit-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Register Button with Wave Effect */
+.register-btn {
+    position: relative;
+    padding: 18px 60px;
+    font-family: var(--font-tech-1);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #000;
+    background: linear-gradient(135deg, var(--cyan) 0%, #00ff88 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 10px 40px rgba(0, 240, 255, 0.4),
+        0 0 0 0 rgba(0, 240, 255, 0.4);
+}
+
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 15px 50px rgba(0, 240, 255, 0.5),
+        0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.register-btn:active {
+    transform: translateY(-1px);
+}
+
+.register-btn .btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.register-btn .btn-loader {
+    display: none;
+    position: relative;
+    z-index: 2;
+}
+
+.register-btn.loading .btn-text {
+    display: none;
+}
+
+.register-btn.loading .btn-loader {
+    display: inline;
+}
+
+.register-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Wave Effect */
+.wave-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 240, 255, 0.4) 50%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wave-effect.animate {
+    animation: wave-spread 0.8s ease-out forwards;
+}
+
+@keyframes wave-spread {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        width: 600px;
+        height: 600px;
+        opacity: 0;
+    }
+}
+
+/* Form Messages */
+.form-message {
+    text-align: center;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    display: none;
+}
+
+.form-message.success {
+    display: block;
+    background: rgba(0, 255, 136, 0.15);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    color: #00ff88;
+    animation: message-appear 0.5s ease;
+}
+
+.form-message.error {
+    display: block;
+    background: rgba(255, 71, 87, 0.15);
+    border: 1px solid rgba(255, 71, 87, 0.4);
+    color: #ff4757;
+    animation: message-appear 0.5s ease;
+}
+
+@keyframes message-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animation Class */
+.registration-form-container.animate-in {
+    animation: slide-up-fade 0.8s ease forwards;
+}
+
+@keyframes slide-up-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .registration-form-container {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .events-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-btn {
+        width: 100%;
+        padding: 16px 40px;
+    }
+
+    .form-section-title {
+        font-size: 0.95rem;
+    }
+
+    .registration-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .events-checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .events-checkbox-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Cursor Trail Particles */
+.cursor-trail-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100;
+    animation: trail-fade 0.8s ease-out forwards;
+}
+
+@keyframes trail-fade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.2);
+        opacity: 0;
     }
 }

@@ -40,6 +40,10 @@
             <div class="nav-title">MEREDITH <span>2K26</span></div>
         </div>
         <div class="nav-right">
+            <button id="mute-btn"
+                style="background:none; border:none; color:var(--cyan); font-size:1.2rem; cursor:pointer; margin-right:15px; z-index:1001;">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -169,6 +173,177 @@
 
                     <a href="events.html" class="details-btn" style="font-size: 1.2rem; padding: 15px 40px;">EXPLORE ALL
                         EVENTS</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Registration Form -->
+        <section id="registration" class="content-section">
+            <div class="container">
+                <div class="registration-form-container">
+                    <div class="section-header">
+                        <span class="section-tag font-t1">REGISTER</span>
+                        <h2>Symposium Event Registration</h2>
+                        <p class="registration-subtitle">Register once and select the events you wish to participate in
+                        </p>
+                    </div>
+
+                    <form id="symposium-registration-form" class="registration-form" novalidate>
+                        <!-- Personal Details Section -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fa-solid fa-user"></i> Personal Details</h3>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name <span class="required">*</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="text" id="fullName" name="fullName" required
+                                            placeholder="Enter your full name">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                    <span class="error-message" id="fullName-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="collegeName">College / Institution Name <span
+                                            class="required">*</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="text" id="collegeName" name="collegeName" required
+                                            placeholder="Enter your college name">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                    <span class="error-message" id="collegeName-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age">Age <span class="required">*</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="number" id="age" name="age" required min="16" max="99"
+                                            placeholder="Your age">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                    <span class="error-message" id="age-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email ID <span class="required">*</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="email" id="email" name="email" required
+                                            placeholder="your.email@example.com">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                    <span class="error-message" id="email-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="tel" id="contactNumber" name="contactNumber" required
+                                            pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                    <span class="error-message" id="contactNumber-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cityState">City / State <span class="optional">(Optional)</span></label>
+                                    <div class="input-wrapper electric-input">
+                                        <input type="text" id="cityState" name="cityState"
+                                            placeholder="Your city and state">
+                                        <div class="electric-border"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Selection Section -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fa-solid fa-calendar-check"></i> Select Events You
+                                Want to Participate In</h3>
+
+                            <div class="events-checkbox-grid">
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Paper Presentation">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">📄 Paper Presentation</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Poster Presentation">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🎨 Poster Presentation</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Technical Quiz">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🧠 Technical Quiz</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Debate Competition">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🗣️ Debate Competition</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="UDYAT">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🚀 UDYAT</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Show Your Talent">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🎭 Show Your Talent</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Free Fire Tournament">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🎮 Free Fire Tournament</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Eat As Possible">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🍽️ Eat As Possible</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Explore The Topic">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🔍 Explore The Topic</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Content Creation">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">📱 Content Creation</span>
+                                </label>
+
+                                <label class="event-checkbox">
+                                    <input type="checkbox" name="events" value="Fitness Challenge">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-label">🏋️ Fitness Challenge</span>
+                                </label>
+                            </div>
+                            <span class="error-message" id="events-error"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-submit-section">
+                            <button type="submit" id="register-btn" class="register-btn">
+                                <span class="btn-text">Register Now</span>
+                                <span class="btn-loader"><i class="fa-solid fa-spinner fa-spin"></i>
+                                    Submitting...</span>
+                                <div class="wave-effect"></div>
+                            </button>
+                        </div>
+
+                        <!-- Success/Error Messages -->
+                        <div id="form-message" class="form-message"></div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -305,7 +480,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+
     <script>
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -316,6 +491,10 @@
             });
         }
     </script>
+    <audio id="bg-music" loop>
+        <source src="interstellar_theme.mp3" type="audio/mpeg">
+    </audio>
+    <script src="script.js"></script>
 </body>
 
 </html>

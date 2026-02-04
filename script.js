@@ -1,7 +1,90 @@
+// =========================================================================
+// 0. PRIORITY: AUDIO PLAYER LOGIC
+// =========================================================================
+(function initAudioPlayer() {
+    const bgMusic = document.getElementById("bg-music");
+    const muteBtn = document.getElementById("mute-btn");
+
+    if (!bgMusic || !muteBtn) {
+        console.error("Audio Player: Elements not found");
+        return;
+    }
+
+    const volumeIcon = muteBtn.querySelector("i");
+    bgMusic.volume = 1.0;
+    bgMusic.muted = false; // Ensure it starts unmuted in code
+
+    const updateIcon = () => {
+        if (!volumeIcon) return;
+        // Icon should reflect if user can hear it or if it's strictly paused/muted
+        if (bgMusic.muted || bgMusic.paused) {
+            volumeIcon.classList.remove("fa-volume-high");
+            volumeIcon.classList.add("fa-volume-xmark");
+        } else {
+            volumeIcon.classList.remove("fa-volume-xmark");
+            volumeIcon.classList.add("fa-volume-high");
+        }
+    };
+
+    // 1. Interaction Listener to Unmute/Play
+    const handleFirstInteraction = () => {
+        if (bgMusic.paused || bgMusic.muted) {
+            bgMusic.muted = false;
+            bgMusic.play().then(() => {
+                updateIcon();
+                console.log("Audio Player: Started unmuted on interaction");
+            }).catch(e => console.warn("Play failed on interaction", e));
+        }
+
+        interactionEvents.forEach(event => {
+            document.removeEventListener(event, handleFirstInteraction);
+        });
+    };
+
+    const interactionEvents = ["click", "keydown", "touchstart", "scroll", "mousemove"];
+    interactionEvents.forEach(event => {
+        document.addEventListener(event, handleFirstInteraction, { once: true });
+    });
+
+    // 2. Attempt Immediate Play (Unmuted)
+    console.log("Audio Player: Attempting immediate unmuted playback...");
+    bgMusic.play().then(() => {
+        console.log("Audio Player: Unmuted autoplay successful!");
+        updateIcon();
+    }).catch(err => {
+        console.warn("Audio Player: Unmuted autoplay blocked. Trying muted start in background...", err);
+
+        // Fallback: Start muted so it's "running" in the background
+        bgMusic.muted = true;
+        bgMusic.play().then(() => {
+            console.log("Audio Player: Running in background (muted)");
+            updateIcon();
+        }).catch(e => {
+            console.error("Audio Player: Even muted playback failed. Waiting for interaction.", e);
+            updateIcon();
+        });
+    });
+
+    // 3. Manual Mute Button Toggle
+    muteBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (bgMusic.paused) {
+            bgMusic.muted = false;
+            bgMusic.play().then(() => {
+                updateIcon();
+            }).catch(err => console.error("Play failed:", err));
+        } else {
+            bgMusic.muted = !bgMusic.muted;
+            updateIcon();
+        }
+    });
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================================================================
-    // 1. CRITICAL: MODAL LOGIC & DATA (Must run first)
+    // 1. CRITICAL: MODAL LOGIC & DATA
     // =========================================================================
 
     // --- V8 COMPREHENSIVE EVENT DATA ---
@@ -489,4 +572,313 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("GSAP Animation Error:", err);
     }
 
+
+    // =========================================================================
+    // 4. REGISTRATION FORM LOGIC
+    // =========================================================================
+
+    /**
+     * ========================================================================
+     * IMPORTANT: GOOGLE APPS SCRIPT WEB APP URL
+     * ========================================================================
+     * 
+     * STEP 1: Create a new Google Apps Script project
+     *         - Go to script.google.com
+     *         - Create a new project
+     *         - Paste the code from google-apps-script.js file
+     * 
+     * STEP 2: Deploy as Web App
+     *         - Click Deploy > New Deployment
+     *         - Select "Web App"
+     *         - Execute as: "Me"
+     *         - Who has access: "Anyone"
+     *         - Click Deploy
+     * 
+     * STEP 3: Copy the Web App URL and paste it below
+     * ========================================================================
+     */
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUFHalUD3uIVOcYX-EBGW9f6_k-2AQt1ltsx7YHL6NWuPGKrhtJ8vdC8LHlO2gfTFU-w/exec";
+
+    // Get form elements
+    const registrationForm = document.getElementById("symposium-registration-form");
+    const registerBtn = document.getElementById("register-btn");
+    const formMessage = document.getElementById("form-message");
+
+    if (registrationForm) {
+        console.log("Registration form found. Initializing...");
+
+        // Prevent duplicate submissions
+        let isSubmitting = false;
+
+        // =====================================================================
+        // Electrifying Input Effect - Pulse on Typing
+        // =====================================================================
+        const electricInputs = document.querySelectorAll(".electric-input");
+        electricInputs.forEach(wrapper => {
+            const input = wrapper.querySelector("input");
+            if (input) {
+                input.addEventListener("input", () => {
+                    wrapper.classList.add("typing");
+                    setTimeout(() => wrapper.classList.remove("typing"), 150);
+                });
+            }
+        });
+
+        // =====================================================================
+        // Wave Effect on Button Click
+        // =====================================================================
+        if (registerBtn) {
+            registerBtn.addEventListener("click", (e) => {
+                const waveEffect = registerBtn.querySelector(".wave-effect");
+                if (waveEffect) {
+                    // Remove previous animation
+                    waveEffect.classList.remove("animate");
+                    // Trigger reflow
+                    void waveEffect.offsetWidth;
+                    // Add animation
+                    waveEffect.classList.add("animate");
+                }
+            });
+        }
+
+        // =====================================================================
+        // Form Validation
+        // =====================================================================
+        function validateField(field, errorElement) {
+            const value = field.value.trim();
+            const wrapper = field.closest(".input-wrapper");
+            let isValid = true;
+            let errorMsg = "";
+
+            // Clear previous error
+            if (wrapper) wrapper.classList.remove("error");
+            if (errorElement) errorElement.textContent = "";
+
+            // Check required fields
+            if (field.hasAttribute("required") && !value) {
+                isValid = false;
+                errorMsg = "This field is required";
+            }
+
+            // Email validation
+            else if (field.type === "email" && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                    errorMsg = "Please enter a valid email address";
+                }
+            }
+
+            // Phone validation
+            else if (field.type === "tel" && value) {
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(value)) {
+                    isValid = false;
+                    errorMsg = "Please enter a valid 10-digit phone number";
+                }
+            }
+
+            // Age validation
+            else if (field.type === "number" && field.name === "age" && value) {
+                const age = parseInt(value);
+                if (isNaN(age) || age < 16 || age > 99) {
+                    isValid = false;
+                    errorMsg = "Age must be between 16 and 99";
+                }
+            }
+
+            // Show error
+            if (!isValid) {
+                if (wrapper) wrapper.classList.add("error");
+                if (errorElement) errorElement.textContent = errorMsg;
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation on blur
+        const formInputs = registrationForm.querySelectorAll("input[required]");
+        formInputs.forEach(input => {
+            const errorElement = document.getElementById(`${input.id}-error`);
+            input.addEventListener("blur", () => validateField(input, errorElement));
+        });
+
+        // =====================================================================
+        // Sanitize Input
+        // =====================================================================
+        function sanitizeInput(str) {
+            if (typeof str !== "string") return str;
+            return str
+                .trim()
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#x27;");
+        }
+
+        // =====================================================================
+        // Form Submission
+        // =====================================================================
+        registrationForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Prevent duplicate submissions
+            if (isSubmitting) {
+                console.log("Form already submitting...");
+                return;
+            }
+
+            // Validate all fields
+            let isFormValid = true;
+            formInputs.forEach(input => {
+                const errorElement = document.getElementById(`${input.id}-error`);
+                if (!validateField(input, errorElement)) {
+                    isFormValid = false;
+                }
+            });
+
+            // Check if at least one event is selected
+            const selectedEvents = registrationForm.querySelectorAll('input[name="events"]:checked');
+            const eventsError = document.getElementById("events-error");
+            if (selectedEvents.length === 0) {
+                isFormValid = false;
+                if (eventsError) eventsError.textContent = "Please select at least one event";
+            } else {
+                if (eventsError) eventsError.textContent = "";
+            }
+
+            if (!isFormValid) {
+                console.log("Form validation failed");
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+                fullName: sanitizeInput(document.getElementById("fullName").value),
+                collegeName: sanitizeInput(document.getElementById("collegeName").value),
+                age: document.getElementById("age").value,
+                email: sanitizeInput(document.getElementById("email").value),
+                contactNumber: sanitizeInput(document.getElementById("contactNumber").value),
+                cityState: sanitizeInput(document.getElementById("cityState").value) || "N/A",
+                selectedEvents: Array.from(selectedEvents).map(cb => cb.value)
+            };
+
+            console.log("Submitting form data:", formData);
+
+            // Set submitting state
+            isSubmitting = true;
+            registerBtn.disabled = true;
+            registerBtn.classList.add("loading");
+
+            // Hide previous messages
+            formMessage.className = "form-message";
+            formMessage.textContent = "";
+
+            try {
+                // Check if URL is configured
+                if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+                    throw new Error("Google Apps Script URL not configured. Please deploy the script and update the URL.");
+                }
+
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors", // Required for Google Apps Script
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Note: With no-cors, we can't read the response
+                // We assume success if no error is thrown
+                console.log("Form submitted successfully");
+
+                // Show success message
+                formMessage.className = "form-message success";
+                formMessage.textContent = "Registration successful! See you at the symposium 🎉";
+
+                // Reset form
+                registrationForm.reset();
+
+            } catch (error) {
+                console.error("Form submission error:", error);
+
+                // Show error message
+                formMessage.className = "form-message error";
+                formMessage.textContent = error.message || "Something went wrong. Please try again.";
+            } finally {
+                // Reset submitting state
+                isSubmitting = false;
+                registerBtn.disabled = false;
+                registerBtn.classList.remove("loading");
+            }
+        });
+
+        // =====================================================================
+        // GSAP Scroll Animation for Registration Form
+        // =====================================================================
+        try {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                const regContainer = document.querySelector(".registration-form-container");
+                if (regContainer) {
+                    gsap.fromTo(regContainer,
+                        {
+                            opacity: 0,
+                            y: 60,
+                            filter: "blur(10px)"
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            filter: "blur(0px)",
+                            duration: 1,
+                            ease: "power3.out",
+                            scrollTrigger: {
+                                trigger: regContainer,
+                                start: "top 85%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                }
+            }
+        } catch (err) {
+            console.error("Registration form animation error:", err);
+        }
+
+        // =====================================================================
+        // Rainbow Cursor Trail (Container Only)
+        // =====================================================================
+        const regContainer = document.querySelector(".registration-form-container");
+        if (regContainer) {
+            regContainer.addEventListener("mousemove", (e) => {
+                const rect = regContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const particle = document.createElement("div");
+                particle.className = "cursor-trail-particle";
+                particle.style.left = x + "px";
+                particle.style.top = y + "px";
+
+                // Rainbow color based on time
+                const hue = (Date.now() / 10) % 360;
+                particle.style.background = `hsl(${hue}, 100%, 50%)`;
+                particle.style.boxShadow = `0 0 10px hsl(${hue}, 100%, 50%)`;
+
+                regContainer.appendChild(particle);
+
+                // Cleanup
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            });
+        }
+
+        console.log("Registration form initialized successfully.");
+    }
+    // =========================================================================
+    // END OF SCRIPT
+    // =========================================================================
 });

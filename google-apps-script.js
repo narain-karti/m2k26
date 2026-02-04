@@ -156,52 +156,31 @@ function doPost(e) {
         // =========================================================================
         try {
             const emailSubject = `Confirmation: Your Registration for MEREDITH 2K26`;
-            const emailBody = `
-Dear ${data.fullName},
-
-Congratulations! You have successfully registered for MEREDITH 2K26 Symposium.
-
-Registration Summary:
-------------------------------------------
-Full Name: ${data.fullName}
-College: ${data.collegeName}
-Selected Events: ${selectedEventsStr}
-Registration Time: ${data.timestamp}
-------------------------------------------
-
-We are thrilled to have you join us. Please keep this email for your records. If you have any questions, feel free to contact the organizing committee.
-
-Best Regards,
-Organizing Committee
-MEREDITH 2K26
-        `.trim();
 
             const htmlBody = `
-            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #050a19; color: #ffffff; padding: 30px; border: 2px solid #00f0ff; border-radius: 15px;">
-                <h2 style="color: #00f0ff; text-align: center; border-bottom: 2px solid #00f0ff; padding-bottom: 10px;">Registration Successful!</h2>
-                <p>Dear <strong>${data.fullName}</strong>,</p>
-                <p>We are excited to confirm your participation in <strong>MEREDITH 2K26</strong>. You have successfully registered for the following events:</p>
-                
-                <div style="background: rgba(0, 240, 255, 0.1); padding: 15px; border-radius: 8px; margin: 20px 0;">
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">🛡️ <strong>Selected Events:</strong> <span style="color: #00f0ff;">${selectedEventsStr}</span></li>
-                        <li style="margin-bottom: 10px;">🏫 <strong>College:</strong> ${data.collegeName}</li>
-                        <li style="margin-bottom: 10px;">📅 <strong>Date:</strong> ${data.timestamp}</li>
-                    </ul>
+                <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #050a19; color: #ffffff; padding: 30px; border: 2px solid #00f0ff; border-radius: 15px;">
+                    <h2 style="color: #00f0ff; text-align: center; border-bottom: 2px solid #00f0ff; padding-bottom: 15px;">Registration Successful! 🛡️</h2>
+                    <p>Dear <strong>${data.fullName}</strong>,</p>
+                    <p>We are thrilled to confirm your participation in <strong>MEREDITH 2K26</strong>. Your registration has been successfully recorded.</p>
+                    <div style="background: rgba(0, 240, 255, 0.05); padding: 20px; border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 10px; margin: 25px 0;">
+                        <h3 style="color: #00f0ff; margin-top: 0; font-size: 1.1em;">📋 Registration Details</h3>
+                        <table style="width: 100%; color: #ffffff; border-collapse: collapse;">
+                            <tr><td style="padding: 5px 0; width: 140px; color: rgba(255,255,255,0.6);">Selected Events:</td><td style="padding: 5px 0; color: #00f0ff;"><strong>${selectedEventsStr}</strong></td></tr>
+                            <tr><td style="padding: 5px 0; color: rgba(255,255,255,0.6);">Institution:</td><td style="padding: 5px 0;">${data.collegeName}</td></tr>
+                        </table>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+                        <h3 style="color: #00f0ff; margin-top: 0; font-size: 1.1em;">📍 Venue: JANAKIRAMAN AUDITORIUM</h3>
+                        <p style="margin: 5px 0; font-size: 0.9em; opacity: 0.8;">AMET Deemed to be University, ECR, Kanathur, Chennai.</p>
+                    </div>
+                    <p>If you have any queries, please reach us at: <strong>office@ametuniv.ac.in</strong></p>
                 </div>
-                
-                <p>Please make sure to arrive at the venue on time. We look forward to an electrifying experience!</p>
-                
-                <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9em; opacity: 0.8;">
-                    <p>Best Regards,<br><strong>Team MEREDITH 2K26</strong></p>
-                </div>
-            </div>
-        `;
+            `;
 
             MailApp.sendEmail({
                 to: data.email,
                 subject: emailSubject,
-                body: emailBody, // Fallback plain text
+                body: "Registration Successful! Please view this email in a browser that supports HTML.",
                 htmlBody: htmlBody
             });
 
@@ -281,3 +260,45 @@ function initializeSheets() {
 
     Logger.log("All sheets initialized successfully!");
 }
+
+// =========================================================================
+// DEBUGGING & UTILITIES
+// =========================================================================
+
+/**
+ * Run this function manually in the Apps Script editor (Select 'testEmail' from the dropdown and click 'Run')
+ * This will trigger the Google authorization popup to grant 'Send Email' permissions.
+ * It also verifies who the sender is.
+ */
+function testEmail() {
+    const userEmail = Session.getActiveUser().getEmail();
+    const recipient = "office@ametuniv.ac.in"; // Replace with your email to test
+
+    Logger.log("--- Email Test Started ---");
+    Logger.log("Sender Identity: " + userEmail);
+    Logger.log("Attempting to send test email to: " + recipient);
+
+    try {
+        MailApp.sendEmail({
+            to: recipient,
+            subject: "🧪 Test Email: MEREDITH 2K26 Registration System",
+            htmlBody: `
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: #050a19; color: #ffffff; padding: 30px; border: 2px solid #00f0ff; border-radius: 15px;">
+            <h2 style="color: #00f0ff;">Authorization Successful! ✅</h2>
+            <p>If you are reading this, the <strong>MEREDITH 2K26</strong> registration script has permission to send emails.</p>
+            <p><strong>Sender Address (Your Email):</strong> \${userEmail}</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+            <p>You can now use the registration form on your website. Any future registrations will automatically send this styled email.</p>
+        </div>
+      `
+        });
+        Logger.log("✅ Success! Test email sent. Please check your inbox and spam folder.");
+    } catch (e) {
+        Logger.log("❌ Error: " + e.toString());
+        if (e.toString().indexOf("permission") !== -1) {
+            Logger.log("HINT: You need to click 'Review Permissions' when you run this script.");
+        }
+    }
+}
+
+// END OF SCRIPT

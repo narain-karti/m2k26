@@ -123,6 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Clarity of Explanation (20%)",
                 "Presentation Skills (15%)",
                 "Response to Questions (15%)"
+            ],
+            downloads: [
+                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/DOMAIN%20AREAS%20FOR%20PAPER%20PRESENTATION-1.pdf" },
+                { label: "Download Abstract", url: "https://meredith2k25.pythonanywhere.com/static/MEREDITH-2025-Abstract-Template%20(2).pdf" }
             ]
         },
         "poster": {
@@ -154,6 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Technical Content (30%)",
                 "Clarity of Explanation (25%)",
                 "Visual Appeal (15%)"
+            ],
+            downloads: [
+                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/DOMAIN%20AREAS%20FOR%20PAPER%20PRESENTATION-1.pdf" }
             ]
         },
         "quiz": {
@@ -422,6 +429,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Copyright Compliance (30%)",
                 "Content Quality (20%)",
                 "Engagement Potential (15%)"
+            ],
+            downloads: [
+                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/Content%20Creation.pdf" }
             ]
         },
         "fit": {
@@ -470,6 +480,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const mFormat = document.getElementById("modal-format");
         const mRules = document.getElementById("modal-rules");
         const mJudging = document.getElementById("modal-judging");
+        const mDownloadsSection = document.getElementById("sec-downloads");
+        const mDownloadsContainer = document.getElementById("modal-downloads-container");
 
         const closeBtn = document.querySelector(".close-modal");
         const overlay = document.querySelector(".modal-overlay");
@@ -501,6 +513,28 @@ document.addEventListener("DOMContentLoaded", () => {
             populateList(mFormat, data.format);
             populateList(mRules, data.rules);
             populateList(mJudging, data.judging);
+
+            // Populate Downloads
+            if (mDownloadsSection && mDownloadsContainer) {
+                if (data.downloads && data.downloads.length > 0) {
+                    mDownloadsContainer.innerHTML = "";
+                    data.downloads.forEach(dl => {
+                        const btn = document.createElement("a");
+                        btn.href = dl.url;
+                        btn.target = "_blank";
+                        btn.className = "access-btn";
+                        btn.style.flex = "1 1 200px";
+                        btn.style.textAlign = "center";
+                        btn.style.textDecoration = "none";
+                        btn.style.display = "inline-block";
+                        btn.innerHTML = `<i class="fa-solid fa-file-pdf"></i> ${dl.label}`;
+                        mDownloadsContainer.appendChild(btn);
+                    });
+                    mDownloadsSection.style.display = "block";
+                } else {
+                    mDownloadsSection.style.display = "none";
+                }
+            }
 
             // Direct style manipulation -> FORCE FLEX
             modal.style.display = "flex";

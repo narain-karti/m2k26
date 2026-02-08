@@ -1,5 +1,80 @@
 // =========================================================================
-// 0. PRIORITY: AUDIO PLAYER LOGIC
+// 0. CUSTOM ANIMATED CURSOR
+// =========================================================================
+(function initCustomCursor() {
+    // Create cursor elements
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+
+    // Create inner element for the themed shape
+    const cursorInner = document.createElement('div');
+    cursorInner.className = 'cursor-inner';
+    cursor.appendChild(cursorInner);
+
+    document.body.appendChild(cursor);
+
+    const cursorTrail = document.createElement('div');
+    cursorTrail.className = 'custom-cursor-trail';
+    document.body.appendChild(cursorTrail);
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let trailX = 0, trailY = 0;
+
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Smooth cursor animation
+    function animateCursor() {
+        // Main cursor follows mouse with high responsiveness
+        // No translate offset here as it's handled in CSS for the tip
+        cursorX += (mouseX - cursorX) * 0.4;
+        cursorY += (mouseY - cursorY) * 0.4;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+
+        // Trail follows with more delay for a liquid effect
+        trailX += (mouseX - trailX) * 0.15;
+        trailY += (mouseY - trailY) * 0.15;
+        cursorTrail.style.left = trailX + 'px';
+        cursorTrail.style.top = trailY + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Add hover effect for interactive elements
+    const interactiveElements = 'a, button, input, textarea, select, .nav-links a, .cta-btn, .event-card, .committee-member';
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.matches(interactiveElements)) {
+            cursor.classList.add('hover');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.matches(interactiveElements)) {
+            cursor.classList.remove('hover');
+        }
+    });
+
+    // Hide cursor when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursorTrail.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        cursorTrail.style.opacity = '1';
+    });
+})();
+
+// =========================================================================
+// 1. PRIORITY: AUDIO PLAYER LOGIC
 // =========================================================================
 (function initAudioPlayer() {
     const bgMusic = document.getElementById("bg-music");

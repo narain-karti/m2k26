@@ -91,75 +91,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventData = {
         "paper": {
             title: "📄 PAPER PRESENTATION",
-            overview: "Paper Presentation is a prestigious platform for participants to present innovative ideas, research findings, or technical solutions in a structured academic format. This event encourages analytical thinking, problem-solving, and effective communication skills that are essential for future engineers and researchers.",
+            overview: "Present innovative research in a structured academic format. Ensure the abstract follows the given template in Microsoft Word.",
             objective: [
-                "Showcase original research, innovative ideas, or technical case studies",
-                "Develop and improve presentation and public speaking skills",
-                "Gain academic recognition and professional exposure",
-                "Network with peers and industry experts in the field",
-                "Receive constructive feedback from experienced judges"
+                "Ensure the abstract is typed in Microsoft Word and follows the given template",
+                "The presentation submitted should be of 10-15 slides using any standardised format",
+                "The presentation and abstract should be submitted on or before 9th March 2025 via papersmeredith@gmail.com"
             ],
             eligibility: [
                 "Open to all undergraduate and postgraduate students",
-                "Individual or team participation (maximum 2 members per team)",
-                "Valid college ID card is mandatory",
-                "Cross-institutional teams are allowed"
+                "Individual or team participation allowed",
+                "Valid college ID card is mandatory"
             ],
             format: [
-                "Round 1: Abstract Submission - Submit a 300-word abstract before the deadline",
-                "Round 2: Screening - Abstracts will be reviewed and shortlisted",
-                "Round 3: Presentation - Shortlisted teams present using PowerPoint (PPT)",
-                "Duration: 8-10 minutes presentation followed by 2-3 minutes Q&A",
-                "Projector and screen will be provided; bring your PPT on USB"
+                "Submit abstract before 9th March 2025 to papersmeredith@gmail.com",
+                "Review will be done in a 3-day period from submission",
+                "Selected participants will be informed within a week of submission",
+                "Presentation and event details will be shared 2 days before (12th March 2025)"
             ],
             rules: [
-                "Plagiarism is strictly prohibited - all content must be original",
-                "PPT must follow the provided template (if any)",
-                "Exceeding time limits will result in penalty points",
-                "Maintain professional decorum throughout the presentation",
-                "Decision of the judges is final and binding",
-                "What to Bring: PPT on USB drive (with backup), Laptop (optional)"
+                "Abstract must be typed in Microsoft Word following the given template",
+                "Presentation: 10-15 slides using any standardised format",
+                "Submit on or before 9th March 2025 via papersmeredith@gmail.com",
+                "Participants selected after review will be informed within a week",
+                "Event schedule and presentation order shared on 12th March 2025",
+                "📞 COORDINATORS: CHIRAG - 7909177248 | SWAVED - 8097740262",
+                "📧 CONTACT: papersmeredith@gmail.com | na@ametuniv.ac.in"
             ],
             judging: [
-                "Innovation & Originality (25%) - Novelty of the idea or research",
-                "Technical Depth (25%) - Quality of research and technical accuracy",
-                "Clarity of Explanation (20%) - How well the concept is communicated",
-                "Presentation Skills (15%) - Confidence, body language, and delivery",
-                "Response to Questions (15%) - Ability to handle Q&A effectively"
+                "Innovation & Originality (25%)",
+                "Technical Depth (25%)",
+                "Clarity of Explanation (20%)",
+                "Presentation Skills (15%)",
+                "Response to Questions (15%)"
             ]
         },
         "poster": {
             title: "🎨 POSTER PRESENTATION",
-            overview: "Poster Presentation empowers participants to visually communicate ideas, concepts, or research through creative and informative poster designs. This event tests your ability to condense complex information into a visually appealing and easily understandable format.",
+            overview: "Visually communicate ideas through creative and informative posters. Poster size should be in A3.",
             objective: [
-                "Promote the art of visual storytelling in technical domains",
-                "Learn to simplify complex ideas into digestible visual formats",
-                "Enhance creative communication and design thinking skills",
-                "Develop the ability to explain concepts concisely"
+                "Poster size should be in A3",
+                "The poster should include: Title, Objective, Methodology, Result, Conclusion",
+                "Each team should contain two members (Author, Co-author)"
             ],
             eligibility: [
-                "Individual participation or team of maximum 2 members",
-                "Open to students from all disciplines",
-                "Valid institutional ID required"
+                "Team of two members (Author and Co-author)",
+                "Open to all students"
             ],
             format: [
-                "Physical poster display at designated venue locations",
-                "Each team gets 5 minutes to explain their poster to judges",
-                "Poster Size: A1 (594 × 841 mm) - Portrait orientation preferred",
-                "Must include: Title, Abstract, Methodology, Results, Conclusion"
+                "Poster Size: A3",
+                "Must include: Title, Objective, Methodology, Result, Conclusion",
+                "Physical poster presentation at designated venue"
             ],
             rules: [
-                "Poster must be original work created by the participant(s)",
-                "No pre-printed commercial posters or templates allowed",
-                "Hand-drawn or digitally designed posters are both acceptable",
-                "Include institution name and participant details on the poster"
+                "Poster size must be A3",
+                "Include Title, Objective, Methodology, Result, and Conclusion",
+                "Teams must have two members: Author and Co-author",
+                "📞 COORDINATORS: KIRUTHIKA - 8925494044 | ARJUN - 8129423177",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Creativity & Design (30%) - Visual appeal and innovative layout",
-                "Relevance to Theme (25%) - Alignment with symposium themes",
-                "Clarity of Explanation (25%) - How well the poster communicates",
-                "Visual Appeal (10%) - Color scheme, readability, and aesthetics",
-                "Q&A Response (10%) - Ability to defend and explain the work"
+                "Creativity & Design (30%)",
+                "Technical Content (30%)",
+                "Clarity of Explanation (25%)",
+                "Visual Appeal (15%)"
             ]
         },
         "quiz": {
@@ -194,251 +188,272 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "debate": {
             title: "🗣️ DEBATE COMPETITION",
-            overview: "Debate Competition is a platform to express opinions, challenge perspectives, and engage in intellectual discussions on contemporary topics. This event sharpens your critical thinking, argumentation skills, and ability to present viewpoints convincingly.",
+            overview: "Express opinions, challenge perspectives, and engage in intellectual discussions. Debate is conducted on general topics.",
             objective: [
-                "Enhance critical thinking and analytical reasoning abilities",
-                "Improve public speaking and communication skills",
-                "Encourage healthy discussions on important topics",
-                "Develop the ability to view issues from multiple perspectives"
+                "Each team must consist of three members",
+                "A team leader must be selected at the time of registration",
+                "Debate is conducted on general topic"
             ],
             eligibility: [
-                "Individual participation only",
-                "Open to all students with proficiency in English"
+                "Team of 3 members required",
+                "Must select a team leader at registration",
+                "Open to all students"
             ],
             format: [
-                "Topics will be announced 10 minutes before each round",
-                "Participants randomly assigned 'For' or 'Against' position",
-                "Speaking Time: 3 minutes per participant",
-                "Rebuttal Time: 1 minute to counter opponent's arguments"
+                "Teams of 3 members",
+                "Topics will be general in nature",
+                "Team leader selected at registration"
             ],
             rules: [
-                "Time limits are strictly enforced",
-                "Respectful and parliamentary language is mandatory",
-                "No personal attacks on opponents - focus on arguments only",
-                "Judge's decision is final"
+                "Each team must consist of three members",
+                "A team leader must be selected at the time of registration",
+                "Debate is conducted on general topic",
+                "📞 COORDINATORS: THALASEKAR - 8838266721 | NIYA - 8075333842",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Content Relevance (30%) - How well arguments relate to the topic",
-                "Argument Strength (30%) - Logic, facts, and persuasiveness",
-                "Confidence & Clarity (20%) - Delivery and stage presence",
-                "Rebuttal Quality (10%) - Effectiveness of counter-arguments"
+                "Content Relevance (30%)",
+                "Argument Strength (30%)",
+                "Teamwork & Coordination (20%)",
+                "Confidence & Clarity (20%)"
             ]
         },
         "udyat": {
             title: "🚀 UDYAT (Innovation Challenge)",
-            overview: "UDYAT - meaning 'Rising' - is an innovation-driven event encouraging participants to propose creative solutions to real-world problems. This is your chance to think like an entrepreneur, present your startup ideas, working prototypes, or innovative concepts.",
+            overview: "Present any business idea, project idea, or innovation idea. Can be performed individually or as a group. The preliminary round will be held in chart work.",
             objective: [
-                "Foster innovation and entrepreneurial thinking",
-                "Promote problem-solving mindset among students",
-                "Encourage practical application of theoretical knowledge",
-                "Provide a platform to showcase working prototypes and models"
+                "Any business idea, project idea, innovation idea can be presented",
+                "Can be performed individually or as a group",
+                "All technical and non-technical ideas are accepted"
             ],
             eligibility: [
-                "Open to all students - individuals or teams (max 3 members)",
-                "Projects can be at any stage: idea, prototype, or working model"
+                "Individual or group participation",
+                "All technical and non-technical ideas accepted",
+                "Open to all students"
             ],
             format: [
-                "Round 1: Idea Submission - Submit a 500-word concept note",
-                "Round 2: Live Pitch - 7 minutes presentation + 3 minutes Q&A",
-                "Prototype Demo: Working models can be demonstrated"
+                "Preliminary round: Chart work presentation",
+                "Selected members will be intimated soon",
+                "Last date of registration: 9th March"
             ],
             rules: [
-                "Ideas must be original - plagiarism will lead to disqualification",
-                "Prototypes are encouraged but not mandatory for participation",
-                "Business viability and scalability will be considered",
-                "Power supply and table space for demo will be provided"
+                "Any business idea, project idea, innovation idea can be presented",
+                "Can be performed individually or as a group",
+                "All technical and non-technical ideas are accepted",
+                "The idea you propose should not affect environment or cause harm to anyone",
+                "The preliminary round will be held in chart work",
+                "Last date registration is 9th March",
+                "📞 COORDINATORS: ASHWIN - 9360086421 | ABHINASH G - 9600004833",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Innovation (35%) - Novelty and creativity of the solution",
-                "Feasibility (25%) - Technical and practical viability",
-                "Impact Potential (20%) - Social/commercial value of the idea",
-                "Presentation Quality (10%) - Clarity and confidence"
+                "Innovation & Creativity (35%)",
+                "Feasibility (25%)",
+                "Impact Potential (20%)",
+                "Presentation Quality (20%)"
             ]
         },
         "talent": {
             title: "🎭 SHOW YOUR TALENT",
-            overview: "Show Your Talent is a vibrant stage to showcase your abilities beyond academics! Whether you're a singer, dancer, mimicry artist, beatboxer, stand-up comedian, or instrumentalist - this is YOUR moment to shine.",
+            overview: "Showcase any talent - singing, dancing, magic, comedy, etc. The contest is open to participants from all over India with no age restrictions.",
             objective: [
-                "Provide a creative outlet for artistic expression",
-                "Celebrate the diverse talents within the student community",
-                "Build stage confidence and performance skills",
-                "Create an entertaining atmosphere at the symposium"
+                "Contest open to participants from all over India (no restrictions on age or background)",
+                "Contestants can showcase any talent (singing, dancing, magic, comedy, etc.)",
+                "Each contestant will have 90 seconds to perform in front of the judges"
             ],
             eligibility: [
-                "Individual or group performance (max 5 members for group)",
-                "Open to all students across institutions"
+                "Open to all participants from India",
+                "No age or background restrictions",
+                "Individual participation"
             ],
             format: [
-                "Categories: Singing, Dancing, Acting, Mimicry, Beatboxing, Comedy, Instrumental",
-                "Time Limit: 4 minutes for solo, 6 minutes for group",
-                "Sound check: 30 minutes before your slot"
+                "Performance duration: 90 seconds",
+                "Before performing, contestants rate themselves on their talent",
+                "If judges' average score matches contestant's self-rating, contestant wins",
+                "Any talent accepted: singing, dancing, magic, comedy, etc."
             ],
             rules: [
-                "Content must be appropriate and non-offensive",
-                "No vulgarity, political, or religious content allowed",
-                "Props are allowed within standard safety guidelines",
-                "Background music/tracks must be submitted on USB 1 hour prior"
+                "90 seconds performance time for each contestant",
+                "Contestants rate themselves before performing",
+                "Win if judges' average score matches your self-rating",
+                "No offensive content allowed",
+                "Contestants prohibited from making inappropriate or offensive remarks/gestures",
+                "No targeting any group with harmful language",
+                "Respect for audience and judges required",
+                "Acts making audience unnecessarily uncomfortable may lead to disqualification",
+                "📞 COORDINATORS: AFFAN - 7795912239 | SATYAM - 7709551561",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Creativity & Originality (30%) - Unique presentation",
-                "Performance Quality (35%) - Technical skill and execution",
-                "Audience Engagement (20%) - Connection with the crowd",
-                "Stage Presence (15%) - Confidence and charisma"
+                "Self-Rating Match (50%) - Match with judges' score",
+                "Performance Quality (30%)",
+                "Audience Engagement (20%)"
             ]
         },
         "game": {
             title: "🎮 FREE FIRE TOURNAMENT",
-            overview: "Free Fire Tournament brings the ultimate E-Sports experience! Squad up with your team and battle it out in this intense mobile gaming competition. Strategy, reflexes, teamwork, and survival instincts will be tested.",
+            overview: "Competitive gaming event for Free Fire enthusiasts. Squad up and battle it out in the ultimate mobile gaming tournament.",
             objective: [
-                "Promote E-Sports and gaming culture among students",
-                "Test strategic thinking and teamwork skills",
-                "Provide a competitive platform for gaming enthusiasts",
-                "Encourage healthy competition in the digital arena"
+                "Teams must register through official tournament platform",
+                "Teams must submit their roster (player names, IDs, and roles) during registration",
+                "Standard Free Fire gameplay rules apply"
             ],
             eligibility: [
-                "Squad Mode: 4 players per team",
-                "Open to all students - no rank restrictions",
-                "Must have Free Fire installed and updated"
+                "Open to all Free Fire players",
+                "Must have updated Free Fire app",
+                "Squad or solo participation"
             ],
             format: [
-                "Match Format: Classic Battle Royale - Bermuda/Purgatory maps",
-                "Scoring: Points based on placement + kill points",
-                "Top teams from groups advance to Finals"
+                "Team Registration through official platform",
+                "Submit roster with player names, IDs, and roles",
+                "Winning Conditions: Most kills and surviving players win",
+                "Standard Free Fire gameplay rules apply"
             ],
             rules: [
-                "Fair Play Only - Any form of hacking/cheating = permanent ban",
-                "Emulators and triggers are strictly prohibited (Mobile only)",
-                "Participants must bring their own devices and mobile data",
-                "Match rooms will be created by organizers - codes shared on time"
+                "Teams must register through official tournament website/platform",
+                "Submit roster (player names, IDs, roles) during registration",
+                "Winning team: Most kills + surviving players",
+                "Gameplay: Standard Free Fire rules apply",
+                "Cheating: Any cheating, hacking, or exploiting = immediate disqualification",
+                "Late Arrival: Teams arriving late may be penalized or disqualified",
+                "Rule Violations: May result in penalty or disqualification",
+                "📞 COORDINATORS: DINESH KATRTHICK - 9789295636 | DINESH KUMAR - 9384798595",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Placement Points - Higher finish = More points",
-                "Kill Points - Each elimination adds to team score",
-                "Total Score across all matches determines ranking"
+                "Placement Points (50%)",
+                "Kill Points (30%)",
+                "Team Survival (20%)"
             ]
         },
         "eat": {
             title: "🍽️ EAT AS POSSIBLE",
-            overview: "Eat As Possible is a fun-filled, high-energy challenge where participants compete to eat the maximum quantity of food within a strict time limit! Do you have the appetite of a sailor?",
+            overview: "Fun challenge where participants compete to eat the maximum quantity within a time limit. Do you have the appetite?",
             objective: [
-                "Create a fun and entertaining atmosphere",
-                "Test appetite, speed, and determination",
-                "Provide a unique non-academic competition"
+                "Each participant must sign a waiver acknowledging the risks involved",
+                "Participants should complete the task within the given time",
+                "Participants allowed to drink only 200-500ml water (more = disqualified)"
             ],
             eligibility: [
                 "Individual participation only",
-                "Open to all students (18+ recommended)",
-                "Participants with known food allergies should refrain"
+                "Open to all students",
+                "Participants must sign waiver form"
             ],
             format: [
-                "Food items will be provided by the organizers",
-                "Vegetarian and Non-vegetarian options available",
-                "Time Limit: 5 minutes to consume as much as possible"
+                "Each participant must eat the given food",
+                "Can't or choose not to eat = eliminated",
+                "Judged by completion time or consumption amount",
+                "Water limit: 200-500ml only"
             ],
             rules: [
-                "No food wastage - dropped food won't be counted",
-                "Hygiene is mandatory - eat with clean hands",
-                "Participant must finish chewing before being counted",
-                "No external food or drinks allowed"
+                "Each participant must sign waiver acknowledging risks",
+                "Complete the task within given time",
+                "Water allowed: 200-500ml ONLY (more = disqualification)",
+                "Each participant must eat the given food",
+                "Can't/won't eat = participant is eliminated",
+                "Judged by time taken to complete OR amount consumed within time",
+                "📞 COORDINATORS: ROHIT - 9384688760 | ARIBA - 8296286049",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Quantity Consumed (80%) - Total amount eaten",
-                "Time Efficiency (20%) - Speed of completion"
+                "Quantity Consumed (70%)",
+                "Time Efficiency (30%)"
             ]
         },
         "explore": {
             title: "🔍 EXPLORE THE TOPIC",
-            overview: "Explore The Topic is an exciting on-the-spot thinking challenge (Extempore / Just-A-Minute) where participants are given a random topic and must speak fluently and coherently with minimal preparation.",
+            overview: "Answer questions on topics drawn from a bowl after shuffling. Topics include Cricket, Movies, Music, Food.",
             objective: [
-                "Test quick thinking and conceptual clarity",
-                "Develop impromptu speaking abilities",
-                "Assess general knowledge and current affairs awareness",
-                "Build confidence in spontaneous communication"
+                "Each player draws a paper from the bowl after shuffling",
+                "Bowl contains topics: Cricket, Movies, Music, Food",
+                "After selecting topic, player answers questions related to it"
             ],
             eligibility: [
                 "Individual participation only",
-                "Open to all students basic English proficiency"
+                "Open to all students"
             ],
             format: [
-                "Topic Given: Random topic from a chit/bowl",
-                "Preparation Time: 1 minute (no notes allowed)",
-                "Speaking Time: 2 minutes continuous speaking"
+                "Draw paper from bowl (topics: Cricket, Movies, Music, Food)",
+                "Answer questions on the selected topic",
+                "On-the-spot question answering"
             ],
             rules: [
-                "No external references, notes, or mobile phones allowed",
-                "Must stay relevant to the given topic",
-                "Speaking must be continuous - long pauses are penalized",
-                "Maintain appropriate language and decorum"
+                "Each player draws paper from bowl after shuffling",
+                "Bowl contains: Cricket, Movies, Music, Food",
+                "After selecting topic, answer questions related to it",
+                "📞 COORDINATORS: SARAVANAN - 9342439897 | THIRUMURUGAN - 6374689765",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Fluency (25%) - Smooth and continuous delivery",
-                "Relevance (25%) - Staying on topic throughout",
-                "Confidence (20%) - Stage presence and body language",
-                "Content Quality (20%) - Depth and insight"
+                "Correctness of Answers (50%)",
+                "Speed of Response (30%)",
+                "Confidence (20%)"
             ]
         },
         "content": {
             title: "📱 CONTENT CREATION",
-            overview: "Content Creation challenges participants to create engaging digital content based on given themes. Whether it's reels, posters, short videos, or social media posts - showcase your creativity!",
+            overview: "Create engaging digital content following copyright laws. Always ensure content doesn't violate copyright. Fair use applies to limited situations.",
             objective: [
-                "Showcase digital creativity and media skills",
-                "Promote social media and content creation expertise",
-                "Identify talented content creators among students",
-                "Create promotional content for the symposium"
+                "Copyright: Always ensure content doesn't violate copyright laws",
+                "If using someone else's work (music, images, videos), need permission or use licensed content",
+                "Violating copyright can result in legal action"
             ],
             eligibility: [
-                "Individual or team participation (max 2 members)",
+                "Individual or team participation",
                 "Open to all students",
-                "Must have own device for editing (laptop/phone)"
+                "Must understand copyright and fair use"
             ],
             format: [
-                "Theme will be announced at the start of the event",
-                "Formats Allowed: Reels, Posters, Short Videos, Social Media Posts",
-                "Creation Time: 2-3 hours",
-                "Submission via Google Drive link"
+                "Create content following copyright guidelines",
+                "Use licensed or permission-based materials",
+                "Fair use applies to criticism, commentary, education, or research"
             ],
             rules: [
-                "All content must be original - no copyrighted material",
-                "Content must align with the given theme",
-                "No offensive, political, or inappropriate content",
-                "Submission deadline is strict"
+                "COPYRIGHT: Ensure content doesn't violate copyright laws",
+                "If using others' work (music, images, videos) - get permission or use licensed content (e.g., Creative Commons)",
+                "Violating copyright can result in legal action",
+                "FAIR USE: Applies to criticism, commentary, education, research",
+                "Fair use is a gray area - when in doubt, seek legal advice",
+                "📞 COORDINATORS: RIYAZ - 6379369558 | TINESH - 7305611088",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Creativity (35%) - Originality and innovative approach",
-                "Engagement Potential (25%) - Likelihood to attract views/shares",
-                "Relevance to Theme (20%) - Alignment with given topic",
-                "Technical Quality (10%) - Video/image quality and editing"
+                "Creativity (35%)",
+                "Copyright Compliance (30%)",
+                "Content Quality (20%)",
+                "Engagement Potential (15%)"
             ]
         },
         "fit": {
             title: "🏋️ FITNESS CHALLENGE",
-            overview: "Fitness Challenge is a physical endurance and fitness-based competition that tests your strength, stamina, and determination! Prove that you're the fittest participant!",
+            overview: "Physical endurance competition testing strength and stamina through tasks like push-ups, pull-ups, barbell curls, and bicep curls.",
             objective: [
-                "Promote fitness and healthy lifestyle",
-                "Test physical endurance and mental discipline",
-                "Create a fun competitive atmosphere around fitness"
+                "Tasks include push-ups, pull-ups, barbell curls, bicep curls",
+                "Counts will be given on spot",
+                "Test physical endurance and strength"
             ],
             eligibility: [
                 "Individual participation only",
-                "Open to all students (no medical conditions)",
-                "Sports attire is mandatory"
+                "Open to all students",
+                "No medical conditions that prevent physical activity"
             ],
             format: [
-                "Challenge 1: Maximum Push-ups in 1 minute",
-                "Challenge 2: Longest Plank Hold",
-                "Challenge 3: Maximum Squats in 1 minute",
-                "Combined score determines overall ranking"
+                "Tasks: Push-ups, Pull-ups, Barbell Curls, Bicep Curls",
+                "Counts given on spot by judges",
+                "Multiple physical challenges"
             ],
             rules: [
-                "Proper form is mandatory - improper reps won't be counted",
-                "Referee's count is final - no arguments allowed",
-                "Participants must complete warm-up before starting",
-                "Sports shoes are compulsory"
+                "Tasks: push-ups, pull-ups, barbell curls, bicep curls need to be performed",
+                "Counts will be given on spot",
+                "Proper form required for counts",
+                "Sports attire mandatory",
+                "📞 COORDINATORS: KAVIRAJ - 8122804863 | THIRUMURUGAN - 6374689765",
+                "📧 CONTACT: na@ametuniv.ac.in"
             ],
             judging: [
-                "Endurance (50%) - Total reps/duration achieved",
-                "Form & Technique (30%) - Quality of each repetition",
-                "Consistency (20%) - Maintaining pace throughout"
+                "Total Repetitions (60%)",
+                "Form & Technique (25%)",
+                "Endurance (15%)"
             ]
         }
     };
@@ -878,6 +893,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("Registration form initialized successfully.");
     }
+
+
+    // =========================================================================
+    // HERO COUNTDOWN TIMER
+    // =========================================================================
+    function initCountdown() {
+        const targetDate = new Date("March 6, 2026 09:00:00").getTime();
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                // Event started
+                document.getElementById("countdown-container").innerHTML = "<div class='hero-date' style='font-size:3rem; margin-top:0;'>EVENT STARTED</div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days < 10 ? "0" + days : days;
+            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        updateCountdown(); // Initial call
+        setInterval(updateCountdown, 1000);
+    }
+
+    initCountdown();
+
     // =========================================================================
     // END OF SCRIPT
     // =========================================================================

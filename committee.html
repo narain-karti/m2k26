@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" content="1.0-committee">
+    <title>Committee | MEREDITH 2K26</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+
+<body>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="parallax-bg"></div>
+
+    <nav>
+        <div class="logo">MEREDITH <span>2K26</span></div>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="committee.html">Committee</a>
+            <a href="events.html">Events</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div style="height: 120px;"></div>
+
+        <div class="section-header radial-glow" style="text-align:center;">
+            <span class="section-tag font-t1">LEADERSHIP</span>
+            <h1 style="font-size: 2.5rem; color: #fff;">ORGANIZING COMMITTEE</h1>
+            <p style="color: var(--cyan); letter-spacing: 3px; margin-top:10px;">Meet the team behind MEREDITH 2K26</p>
+        </div>
+
+        <div class="committee-page-container">
+
+            <!-- Committee Member 1 -->
+            <div class="committee-member slide-left" data-index="0">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122214.png" alt="Committee Member 1" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 2 -->
+            <div class="committee-member slide-right" data-index="1">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122233.png" alt="Committee Member 2" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 3 -->
+            <div class="committee-member slide-left" data-index="2">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122303.png" alt="Committee Member 3" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 4 -->
+            <div class="committee-member slide-right" data-index="3">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122320.png" alt="Committee Member 4" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 5 -->
+            <div class="committee-member slide-left" data-index="4">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122337.png" alt="Committee Member 5" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 6 -->
+            <div class="committee-member slide-right" data-index="5">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122352.png" alt="Committee Member 6" class="committee-photo-main">
+                </div>
+            </div>
+
+            <!-- Committee Member 7 -->
+            <div class="committee-member slide-left" data-index="6">
+                <div class="committee-image-container">
+                    <div class="brown-glow"></div>
+                    <img src="Screenshot 2026-02-08 122409.png" alt="Committee Member 7" class="committee-photo-main">
+                </div>
+            </div>
+
+        </div>
+
+        <div style="height: 100px;"></div>
+
+    </main>
+
+    <footer
+        style="background: black; padding: 15px 0; text-align: center; border-top: 1px solid #1a1a1a; position: relative; z-index: 10;">
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <img src="footer-logos.png" alt="Accreditation Logos"
+                style="max-width: 90%; height: auto; max-height: 100px; object-fit: contain;">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu functionality
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+
+        // Scroll-triggered animations for committee members
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all committee member cards
+        document.querySelectorAll('.committee-member').forEach(member => {
+            observer.observe(member);
+        });
+    </script>
+</body>
+
+</html>

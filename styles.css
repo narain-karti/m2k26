@@ -1383,3 +1383,527 @@ body.modal-open {
         opacity: 0;
     }
 }
+
+/* =========================================================================
+   MEGA REGISTRATION BUTTON STYLES - Ultra Premium Edition
+   ========================================================================= */
+
+.registration-button-container {
+    background: rgba(10, 25, 50, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+/* Rainbow Border */
+.registration-button-container::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    padding: 5px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    z-index: -1;
+    animation: rainbow-border 12s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+.mega-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.mega-register-button {
+    position: relative;
+    display: inline-block;
+    padding: 30px 80px;
+    font-family: var(--font-tech-1);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #000;
+    background: linear-gradient(135deg, var(--cyan) 0%, #00ff88 50%, var(--cyan) 100%);
+    background-size: 200% 100%;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow:
+        0 15px 60px rgba(0, 240, 255, 0.6),
+        0 0 40px rgba(0, 240, 255, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-weight: 700;
+    z-index: 1;
+    animation: button-pulse 3s ease-in-out infinite;
+}
+
+.mega-register-button:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-position: 100% 0;
+    box-shadow:
+        0 20px 80px rgba(0, 240, 255, 0.8),
+        0 0 60px rgba(0, 240, 255, 0.6),
+        inset 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.mega-register-button:active {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.button-text {
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Glowing Background Effect */
+.button-glow {
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.4), transparent 70%);
+    border-radius: 70px;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+    animation: glow-pulse 4s ease-in-out infinite;
+    filter: blur(20px);
+}
+
+.mega-register-button:hover .button-glow {
+    opacity: 1;
+}
+
+@keyframes button-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 15px 60px rgba(0, 240, 255, 0.6),
+            0 0 40px rgba(0, 240, 255, 0.4),
+            inset 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 15px 80px rgba(0, 240, 255, 0.8),
+            0 0 60px rgba(0, 240, 255, 0.6),
+            inset 0 0 40px rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* Particle Effects */
+.button-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #fff, var(--cyan));
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-float 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 25%;
+    animation-delay: 0.6s;
+}
+
+.particle:nth-child(3) {
+    top: 40%;
+    left: 50%;
+    animation-delay: 1.2s;
+}
+
+.particle:nth-child(4) {
+    top: 70%;
+    left: 70%;
+    animation-delay: 1.8s;
+}
+
+.particle:nth-child(5) {
+    top: 30%;
+    left: 85%;
+    animation-delay: 2.4s;
+}
+
+@keyframes particle-float {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+
+    25% {
+        opacity: 0.8;
+        transform: translateY(-20px) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-40px) scale(1.2);
+    }
+
+    75% {
+        opacity: 0.6;
+        transform: translateY(-60px) scale(0.8);
+    }
+}
+
+.mega-register-button:hover .particle {
+    animation-duration: 2s;
+}
+
+/* Border Sparkle Effect */
+.mega-register-button::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, transparent, var(--cyan), transparent);
+    border-radius: 60px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: border-rotate 3s linear infinite;
+}
+
+.mega-register-button:hover::before {
+    opacity: 1;
+}
+
+@keyframes border-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Shimmer Effect */
+.mega-register-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        left: -100%;
+    }
+
+    50% {
+        left: 200%;
+    }
+}
+
+/* Responsive Styles for Mega Button */
+@media (max-width: 768px) {
+    .registration-button-container {
+        padding: 40px 20px;
+    }
+
+    .mega-register-button {
+        padding: 20px 40px;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mega-button-wrapper {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mega-register-button {
+        padding: 25px 60px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1441px) {
+    .mega-register-button {
+        padding: 35px 100px;
+        font-size: 1.8rem;
+    }
+}
+
+/* =========================================================================
+   COMMITTEE PAGE STYLES - Dedicated Page
+   ========================================================================= */
+
+.committee-page-container {
+    max-width: 700px;
+    margin: 120px auto 80px;
+    padding: 0 20px;
+}
+
+.committee-member {
+    position: relative;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.committee-member.slide-right {
+    transform: translateX(100px);
+}
+
+.committee-member.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.committee-image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.committee-image-container:hover {
+    transform: scale(1.05);
+}
+
+.committee-image-container:hover .brown-glow {
+    opacity: 1;
+    filter: blur(40px);
+}
+
+.committee-photo-main {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+    filter: brightness(0.95) contrast(1.05);
+    transition: filter 0.4s ease;
+}
+
+.committee-image-container:hover .committee-photo-main {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* Brown Neon Glow Effect */
+.brown-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(circle at center,
+            rgba(205, 127, 50, 0.6),
+            rgba(184, 115, 51, 0.4) 30%,
+            rgba(139, 69, 19, 0.2) 60%,
+            transparent 80%);
+    opacity: 0.7;
+    z-index: 1;
+    filter: blur(30px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Shimmer Effect */
+.committee-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(205, 127, 50, 0.3),
+            transparent);
+    z-index: 3;
+    transition: left 0.6s ease;
+}
+
+.committee-image-container:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 768px) {
+    .committee-page-container {
+        margin-top: 100px;
+        padding: 0 15px;
+    }
+
+    .committee-member {
+        margin-bottom: 50px;
+    }
+}
+
+/* Responsive Adjustments */
+
+/* =========================================================================
+   HERO DATE & COUNTDOWN
+   ========================================================================= */
+
+.hero-date-container {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-date {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-shadow:
+        0 0 10px rgba(0, 240, 255, 0.5),
+        0 0 20px rgba(0, 240, 255, 0.3);
+    background: linear-gradient(to bottom, #d6e2ff 0%, #00f0ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: date-pulse 3s infinite alternate;
+}
+
+@keyframes date-pulse {
+    from {
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+    }
+
+    to {
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 40px rgba(0, 240, 255, 0.5);
+    }
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    background: rgba(10, 25, 50, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px 20px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+    border-color: var(--cyan);
+}
+
+.countdown-value {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .hero-date {
+        font-size: 1.8rem;
+    }
+
+    .countdown-container {
+        gap: 10px;
+    }
+
+    .countdown-box {
+        padding: 10px;
+        min-width: 70px;
+    }
+
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+}

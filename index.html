@@ -50,7 +50,7 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#dept">Department</a>
-                <a href="#committee">Committee</a>
+                <a href="committee.html">Committee</a>
                 <a href="events.html">Events</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -70,7 +70,27 @@
                 <h1 class="hero-title glitch" data-text="MEREDITH 2K26">MEREDITH 2K26</h1>
             </div>
             <div class="hero-subtitle">Engineering the Oceans of Tomorrow</div>
-            <p style="margin-top: 20px; color: var(--cyan); letter-spacing: 2px;">06 MARCH 2026</p>
+            <div class="hero-date-container">
+                <p class="hero-date">06 MARCH 2026</p>
+                <div id="countdown-container" class="countdown-container">
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">DAYS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">HOURS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">MINUTES</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">SECONDS</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- About Symposium -->
@@ -82,14 +102,15 @@
                         <h2>About The Symposium</h2>
                     </div>
                     <div style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 1.1rem;">
-                        <p>The Department of Naval Architecture and Offshore Engineering of AMET Deemed to be University
-                            is organizing a National Level Technical Symposium <strong>MEREDITH 2K26</strong> on 06
-                            March, 2026.</p>
+                        <p>We, the Naval Architecture Department students, proudly present the National Level Symposium,
+                            <strong>MEREDITH 2K26</strong>, bringing together students from across India on a single
+                            platform. Established in 2010, we started as a humble seed, and now, like an ocean, we
+                            continue to grow toward infinity.
+                        </p>
                         <br>
-                        <p>The symposium brings together experts, researchers, practitioners, and professionals to
-                            deliberate upon the various aspects of quality in higher education. It serves as a platform
-                            to identify areas of potential upgradation, facilitate exchange of stakeholder inputs, and
-                            create qualitative value from the synergy of pluralistic ideas.</p>
+                        <p>Our mission is to bring the maritime industry to all streams of engineers, providing a
+                            gateway for innovation and paving the way for a distinguished future. Join us on <strong>06
+                                March, 2026</strong> for an exceptional experience at AMET Deemed to be University.</p>
                     </div>
                 </div>
 
@@ -99,10 +120,13 @@
                         <span class="section-tag font-t1">UNIVERSITY</span>
                         <h3>About AMET</h3>
                     </div>
-                    <p>AMET is India's first Deemed to be University in Maritime Education, ranked 3rd globally in PIMET
-                        rankings by IAMU. Established in 1993, AMET has consistently fed the global shipping industry
-                        with unrivalled human resources. It holds recognitions like NIRF, ARIIA, DGS-CIP, and is
-                        accredited by NAAC with 'A' Grade.</p>
+                    <p>AMET is India's first Deemed to be University in Maritime Education, which is ranked as third
+                        among Maritime Universities of the World in the PIMET (Performance Indicators in Maritime
+                        Education and Training) Ranking of International Association of Maritime Universities (IAMU).
+                        Established during 1993, AMET's uncompromising strides of excellence in the field of maritime
+                        education and training laced with its capacity to feed the global shipping industry with an
+                        unrivalled maritime human resource secured it to have many national and international
+                        recognitions, rankings such as NIRF, ARIIA, DGS-CIP, PIMET and accredited by NAAC A Grade.</p>
 
                     <div class="grid-2col"
                         style="display:grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
@@ -110,13 +134,25 @@
                             <h4 style="color:var(--cyan); margin-bottom:10px;">VISION</h4>
                             <p style="font-size:0.9rem;">To sustain identity as a World Class Leader in Maritime
                                 Education and empower learners with wholesome knowledge through progressive innovation
-                                in training, research, and development.</p>
+                                in training, research and development, which will render students a unique learning
+                                experience and a transformation, impact on the Global Society.</p>
                         </div>
                         <div style="background:rgba(0,0,0,0.3); padding:20px; border-left:2px solid var(--cyan);">
                             <h4 style="color:var(--cyan); margin-bottom:10px;">MISSION</h4>
-                            <p style="font-size:0.9rem;">Impart value-based higher education and technical knowledge.
-                                Emerge as a Centre of Excellence in recent technologies. Create world-class research
-                                capabilities.</p>
+                            <ul style="font-size:0.9rem; list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 8px;">• Impart value-based higher education and technical
+                                    knowledge with uncompromising strides of an outstanding quality.</li>
+                                <li style="margin-bottom: 8px;">• Emerge as a Centre of Excellence inculcating skill
+                                    development in recent technologies in accordance with industrial trends.</li>
+                                <li style="margin-bottom: 8px;">• Create World class research capabilities on par with
+                                    the finest in the world and broaden student's horizons beyond classroom education.
+                                </li>
+                                <li style="margin-bottom: 8px;">• Nurture talent and entrepreneurship to enable all
+                                    round personality development among students.</li>
+                                <li style="margin-bottom: 8px;">• Empower students across socio economic strata.</li>
+                                <li style="margin-bottom: 8px;">• Make a positive difference to society through
+                                    technical education.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -129,24 +165,40 @@
                 <div class="tech-panel">
                     <div class="section-header">
                         <span class="section-tag font-t1">ACADEMICS</span>
-                        <h2>Department of Naval Architecture</h2>
+                        <h2>Department of Naval Architecture and Offshore Engineering</h2>
                     </div>
-                    <p>Established in 2007, the Department offers Ph.D., M.E., and B.E. programs. Accredited by the NBA
-                        from 2024, it boasts a strong placement record and renowned faculty. Research focus includes
-                        offshore structures, naval architecture, and marine engineering.</p>
+                    <p>The Department of Naval Architecture and Offshore Engineering, established in 2007, offers Ph.D.,
+                        M.E., and B.E. programs, providing high-quality education and practical skills for the maritime
+                        industry. The department boasts a strong placement record, supports higher studies, and fosters
+                        entrepreneurial spirit. It is accredited by the National Board of Accreditation (NBA) from 2024
+                        for three years. The department's faculty members are renowned experts in their fields,
+                        providing students with valuable industry insights. The department's research focus areas
+                        include offshore structures, naval architecture, and marine engineering. Students have access to
+                        state-of-the-art facilities and equipment, enhancing their learning experience. The department's
+                        alumni have gone on to successful careers in leading maritime and offshore companies.</p>
 
                     <div class="grid-2col"
                         style="display:grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
                         <div style="background:rgba(0,0,0,0.3); padding:20px; border-left:2px solid var(--cyan);">
-                            <h4 style="color:var(--cyan); margin-bottom:10px;">DEPT VISION</h4>
+                            <h4 style="color:var(--cyan); margin-bottom:10px;">VISION</h4>
                             <p style="font-size:0.9rem;">To sustain identity as a World Class Leader in Maritime
-                                Education and empower learners with wholesome knowledge.</p>
+                                Education and empower learners with wholesome knowledge through progressive innovation
+                                in training, research and development, which will render students a unique learning
+                                experience and a transformation, impact on the Global Society.</p>
                         </div>
                         <div style="background:rgba(0,0,0,0.3); padding:20px; border-left:2px solid var(--cyan);">
-                            <h4 style="color:var(--cyan); margin-bottom:10px;">DEPT MISSION</h4>
-                            <p style="font-size:0.9rem;">To impart quality education producing innovative,
-                                socio-economically conscious Naval Architects. To provide knowledge essential for local
-                                and global demands.</p>
+                            <h4 style="color:var(--cyan); margin-bottom:10px;">MISSION</h4>
+                            <ul style="font-size:0.9rem; list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 8px;">• To impart quality education in order to produce highly
+                                    innovative, socio-economically conscious Naval Architecture.</li>
+                                <li style="margin-bottom: 8px;">• To provide knowledge and skills, that is essential to
+                                    meet the local and global demands in Naval Architecture.</li>
+                                <li style="margin-bottom: 8px;">• To upgrade student's technical knowledge through
+                                    industry interaction activities.</li>
+                                <li style="margin-bottom: 8px;">• To motivate and guide students for developing
+                                    entrepreneurship or pursue higher education and train the for overall personality
+                                    development.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -177,215 +229,34 @@
             </div>
         </section>
 
-        <!-- Event Registration Form -->
+        <!-- Registration Button Section -->
         <section id="registration" class="content-section">
             <div class="container">
-                <div class="registration-form-container">
+                <div class="registration-button-container">
                     <div class="section-header">
-                        <span class="section-tag font-t1">REGISTER</span>
-                        <h2>Symposium Event Registration</h2>
-                        <p class="registration-subtitle">Register once and select the events you wish to participate in
-                        </p>
+                        <span class="section-tag font-t1">REGISTER NOW</span>
+                        <h2>Join MEREDITH 2K26</h2>
+                        <p class="registration-subtitle">Click below to register for the symposium and events</p>
                     </div>
 
-                    <form id="symposium-registration-form" class="registration-form" novalidate>
-                        <!-- Personal Details Section -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fa-solid fa-user"></i> Personal Details</h3>
-
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name <span class="required">*</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="text" id="fullName" name="fullName" required
-                                            placeholder="Enter your full name">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                    <span class="error-message" id="fullName-error"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="collegeName">College / Institution Name <span
-                                            class="required">*</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="text" id="collegeName" name="collegeName" required
-                                            placeholder="Enter your college name">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                    <span class="error-message" id="collegeName-error"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="age">Age <span class="required">*</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="number" id="age" name="age" required min="16" max="99"
-                                            placeholder="Your age">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                    <span class="error-message" id="age-error"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">Email ID <span class="required">*</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="email" id="email" name="email" required
-                                            placeholder="your.email@example.com">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                    <span class="error-message" id="email-error"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contactNumber">Contact Number <span class="required">*</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="tel" id="contactNumber" name="contactNumber" required
-                                            pattern="[0-9]{10}" placeholder="10-digit mobile number">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                    <span class="error-message" id="contactNumber-error"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cityState">City / State <span class="optional">(Optional)</span></label>
-                                    <div class="input-wrapper electric-input">
-                                        <input type="text" id="cityState" name="cityState"
-                                            placeholder="Your city and state">
-                                        <div class="electric-border"></div>
-                                    </div>
-                                </div>
+                    <div class="mega-button-wrapper">
+                        <a href="https://naoeevents.pythonanywhere.com/" target="_blank" class="mega-register-button">
+                            <span class="button-text">REGISTER FOR SYMPOSIUM</span>
+                            <div class="button-glow"></div>
+                            <div class="button-particles">
+                                <span class="particle"></span>
+                                <span class="particle"></span>
+                                <span class="particle"></span>
+                                <span class="particle"></span>
+                                <span class="particle"></span>
                             </div>
-                        </div>
-
-                        <!-- Event Selection Section -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fa-solid fa-calendar-check"></i> Select Events You
-                                Want to Participate In</h3>
-
-                            <div class="events-checkbox-grid">
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Paper Presentation">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">📄 Paper Presentation</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Poster Presentation">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🎨 Poster Presentation</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Technical Quiz">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🧠 Technical Quiz</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Debate Competition">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🗣️ Debate Competition</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="UDYAT">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🚀 UDYAT</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Show Your Talent">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🎭 Show Your Talent</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Free Fire Tournament">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🎮 Free Fire Tournament</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Eat As Possible">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🍽️ Eat As Possible</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Explore The Topic">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🔍 Explore The Topic</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Content Creation">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">📱 Content Creation</span>
-                                </label>
-
-                                <label class="event-checkbox">
-                                    <input type="checkbox" name="events" value="Fitness Challenge">
-                                    <span class="checkbox-custom"></span>
-                                    <span class="checkbox-label">🏋️ Fitness Challenge</span>
-                                </label>
-                            </div>
-                            <span class="error-message" id="events-error"></span>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <div class="form-submit-section">
-                            <button type="submit" id="register-btn" class="register-btn">
-                                <span class="btn-text">Register Now</span>
-                                <span class="btn-loader"><i class="fa-solid fa-spinner fa-spin"></i>
-                                    Submitting...</span>
-                                <div class="wave-effect"></div>
-                            </button>
-                        </div>
-
-                        <!-- Success/Error Messages -->
-                        <div id="form-message" class="form-message"></div>
-                    </form>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Committee -->
-        <section id="committee" class="content-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag font-t1">LEADERSHIP</span>
-                    <h2>Organizing Committee</h2>
-                </div>
 
-                <div class="full-events-grid">
-                    <div class="tech-panel">
-                        <h4 style="color:var(--cyan);">CHIEF PATRONS</h4>
-                        <ul style="list-style:none; margin-top:10px; line-height:1.6;">
-                            <li><strong>Dr. J. Ramachandran</strong><br>Chancellor, AMET</li>
-                            <li><strong>Dr. Rajesh Ramachandren</strong><br>President, AMET</li>
-                            <li><strong>Mrs. Susheela Ramachandran</strong><br>Managing Trustee</li>
-                            <li><strong>Col. Dr. G. Thiruvasagam</strong><br>Provost, AMET</li>
-                        </ul>
-                    </div>
-                    <div class="tech-panel">
-                        <h4 style="color:var(--cyan);">PATRON & ORGANIZERS</h4>
-                        <ul style="list-style:none; margin-top:10px; line-height:1.6;">
-                            <li><strong>Prof. Dr. V. Rajendran</strong><br>Vice Chancellor</li>
-                            <li><strong>Dr. Deepa Rajesh</strong><br>Vice President (Academics)</li>
-                            <li><strong>Dr. V. Sangeetha Albin</strong><br>Registrar (i/c)</li>
-                            <li><strong>Dr. M. Jayaprakashvel</strong><br>Coordinator, IQAC</li>
-                        </ul>
-                    </div>
-                    <div class="tech-panel">
-                        <h4 style="color:var(--cyan);">CONVENERS</h4>
-                        <ul style="list-style:none; margin-top:10px; line-height:1.6;">
-                            <li><strong>Dr. P. Sivabalan</strong><br>Professor & Head (Naval Arch)</li>
-                            <li style="margin-top:15px;"><strong>CO-COORDINATOR</strong></li>
-                            <li><strong>Mr. R. Jaya Surya</strong><br>Assistant Professor</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Sponsors Section -->
         <section id="sponsors" class="content-section">

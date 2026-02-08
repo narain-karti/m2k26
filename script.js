@@ -933,7 +933,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // HERO COUNTDOWN TIMER
     // =========================================================================
     function initCountdown() {
-        const targetDate = new Date("March 6, 2026 09:00:00").getTime();
+        const targetDate = new Date("March 5, 2026 09:00:00").getTime();
 
         const daysEl = document.getElementById("days");
         const hoursEl = document.getElementById("hours");

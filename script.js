@@ -1,77 +1,4 @@
-// =========================================================================
-// 0. CUSTOM ANIMATED CURSOR
-// =========================================================================
-(function initCustomCursor() {
-    // Create cursor elements
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-
-    // Create inner element for the themed shape
-    const cursorInner = document.createElement('div');
-    cursorInner.className = 'cursor-inner';
-    cursor.appendChild(cursorInner);
-
-    document.body.appendChild(cursor);
-
-    const cursorTrail = document.createElement('div');
-    cursorTrail.className = 'custom-cursor-trail';
-    document.body.appendChild(cursorTrail);
-
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let trailX = 0, trailY = 0;
-
-    // Track mouse position
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    // Smooth cursor animation
-    function animateCursor() {
-        // Main cursor follows mouse with high responsiveness
-        // No translate offset here as it's handled in CSS for the tip
-        cursorX += (mouseX - cursorX) * 0.4;
-        cursorY += (mouseY - cursorY) * 0.4;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-
-        // Trail follows with more delay for a liquid effect
-        trailX += (mouseX - trailX) * 0.15;
-        trailY += (mouseY - trailY) * 0.15;
-        cursorTrail.style.left = trailX + 'px';
-        cursorTrail.style.top = trailY + 'px';
-
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Add hover effect for interactive elements
-    const interactiveElements = 'a, button, input, textarea, select, .nav-links a, .cta-btn, .event-card, .committee-member';
-
-    document.addEventListener('mouseover', (e) => {
-        if (e.target.matches(interactiveElements)) {
-            cursor.classList.add('hover');
-        }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-        if (e.target.matches(interactiveElements)) {
-            cursor.classList.remove('hover');
-        }
-    });
-
-    // Hide cursor when mouse leaves window
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-        cursorTrail.style.opacity = '0';
-    });
-
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-        cursorTrail.style.opacity = '1';
-    });
-})();
+// Custom Cursor Removed: Using system default for better performance.
 
 // =========================================================================
 // 1. PRIORITY: AUDIO PLAYER LOGIC
@@ -166,23 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventData = {
         "paper": {
             title: "📄 PAPER PRESENTATION",
-            overview: "Present innovative research in a structured academic format. Ensure the abstract follows the given template in Microsoft Word.",
-            objective: [
-                "Ensure the abstract is typed in Microsoft Word and follows the given template",
-                "The presentation submitted should be of 10-15 slides using any standardised format",
-                "The presentation and abstract should be submitted on or before 9th March 2025 via papersmeredith@gmail.com"
-            ],
-            eligibility: [
-                "Open to all undergraduate and postgraduate students",
-                "Individual or team participation allowed",
-                "Valid college ID card is mandatory"
-            ],
-            format: [
-                "Submit abstract before 9th March 2025 to papersmeredith@gmail.com",
-                "Review will be done in a 3-day period from submission",
-                "Selected participants will be informed within a week of submission",
-                "Presentation and event details will be shared 2 days before (12th March 2025)"
-            ],
             rules: [
                 "Abstract must be typed in Microsoft Word following the given template",
                 "Presentation: 10-15 slides using any standardised format",
@@ -191,133 +101,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Event schedule and presentation order shared on 12th March 2025",
                 "📞 COORDINATORS: CHIRAG - 7909177248 | SWAVED - 8097740262",
                 "📧 CONTACT: papersmeredith@gmail.com | na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Innovation & Originality (25%)",
-                "Technical Depth (25%)",
-                "Clarity of Explanation (20%)",
-                "Presentation Skills (15%)",
-                "Response to Questions (15%)"
-            ],
-            downloads: [
-                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/DOMAIN%20AREAS%20FOR%20PAPER%20PRESENTATION-1.pdf" },
-                { label: "Download Abstract", url: "https://meredith2k25.pythonanywhere.com/static/MEREDITH-2025-Abstract-Template%20(2).pdf" }
             ]
         },
         "poster": {
             title: "🎨 POSTER PRESENTATION",
-            overview: "Visually communicate ideas through creative and informative posters. Poster size should be in A3.",
-            objective: [
-                "Poster size should be in A3",
-                "The poster should include: Title, Objective, Methodology, Result, Conclusion",
-                "Each team should contain two members (Author, Co-author)"
-            ],
-            eligibility: [
-                "Team of two members (Author and Co-author)",
-                "Open to all students"
-            ],
-            format: [
-                "Poster Size: A3",
-                "Must include: Title, Objective, Methodology, Result, Conclusion",
-                "Physical poster presentation at designated venue"
-            ],
             rules: [
                 "Poster size must be A3",
                 "Include Title, Objective, Methodology, Result, and Conclusion",
                 "Teams must have two members: Author and Co-author",
                 "📞 COORDINATORS: KIRUTHIKA - 8925494044 | ARJUN - 8129423177",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Creativity & Design (30%)",
-                "Technical Content (30%)",
-                "Clarity of Explanation (25%)",
-                "Visual Appeal (15%)"
-            ],
-            downloads: [
-                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/DOMAIN%20AREAS%20FOR%20PAPER%20PRESENTATION-1.pdf" }
             ]
         },
         "quiz": {
             title: "🧠 TECHNICAL QUIZ",
-            overview: "Technical Quiz is a fast-paced, adrenaline-pumping competition designed to test participants' technical knowledge, logical thinking, and quick decision-making abilities. This event covers a wide range of technical topics and challenges your engineering fundamentals.",
-            objective: [
-                "Assess technical fundamentals across multiple engineering domains",
-                "Encourage quick thinking, accuracy, and time management",
-                "Test knowledge in current technologies and emerging trends",
-                "Foster healthy competition among technically-minded students"
-            ],
-            eligibility: [
-                "Individual participation or team of 2 members",
-                "Open to all engineering and science students"
-            ],
-            format: [
-                "Preliminary Round: Written test (20 MCQs in 15 minutes)",
-                "Final Round 1: Rapid Fire - 30 seconds per question",
-                "Final Round 2: Visual Connect - Identify from images/videos",
-                "Final Round 3: Buzzer Round - First to buzz gets to answer"
-            ],
             rules: [
                 "Absolutely no electronic gadgets allowed during the quiz",
                 "Mobile phones must be submitted before entering the quiz hall",
                 "Discussion between teams is strictly prohibited",
                 "Quiz master's decision on answers is final and binding"
-            ],
-            judging: [
-                "Accuracy (60%) - Correctness of answers",
-                "Speed (40%) - Time taken to answer (especially in finals)"
             ]
         },
         "debate": {
             title: "🗣️ DEBATE COMPETITION",
-            overview: "Express opinions, challenge perspectives, and engage in intellectual discussions. Debate is conducted on general topics.",
-            objective: [
-                "Each team must consist of three members",
-                "A team leader must be selected at the time of registration",
-                "Debate is conducted on general topic"
-            ],
-            eligibility: [
-                "Team of 3 members required",
-                "Must select a team leader at registration",
-                "Open to all students"
-            ],
-            format: [
-                "Teams of 3 members",
-                "Topics will be general in nature",
-                "Team leader selected at registration"
-            ],
             rules: [
                 "Each team must consist of three members",
                 "A team leader must be selected at the time of registration",
                 "Debate is conducted on general topic",
                 "📞 COORDINATORS: THALASEKAR - 8838266721 | NIYA - 8075333842",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Content Relevance (30%)",
-                "Argument Strength (30%)",
-                "Teamwork & Coordination (20%)",
-                "Confidence & Clarity (20%)"
             ]
         },
         "udyat": {
             title: "🚀 UDYAT (Innovation Challenge)",
-            overview: "Present any business idea, project idea, or innovation idea. Can be performed individually or as a group. The preliminary round will be held in chart work.",
-            objective: [
-                "Any business idea, project idea, innovation idea can be presented",
-                "Can be performed individually or as a group",
-                "All technical and non-technical ideas are accepted"
-            ],
-            eligibility: [
-                "Individual or group participation",
-                "All technical and non-technical ideas accepted",
-                "Open to all students"
-            ],
-            format: [
-                "Preliminary round: Chart work presentation",
-                "Selected members will be intimated soon",
-                "Last date of registration: 9th March"
-            ],
             rules: [
                 "Any business idea, project idea, innovation idea can be presented",
                 "Can be performed individually or as a group",
@@ -327,33 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Last date registration is 9th March",
                 "📞 COORDINATORS: ASHWIN - 9360086421 | ABHINASH G - 9600004833",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Innovation & Creativity (35%)",
-                "Feasibility (25%)",
-                "Impact Potential (20%)",
-                "Presentation Quality (20%)"
             ]
         },
         "talent": {
             title: "🎭 SHOW YOUR TALENT",
-            overview: "Showcase any talent - singing, dancing, magic, comedy, etc. The contest is open to participants from all over India with no age restrictions.",
-            objective: [
-                "Contest open to participants from all over India (no restrictions on age or background)",
-                "Contestants can showcase any talent (singing, dancing, magic, comedy, etc.)",
-                "Each contestant will have 90 seconds to perform in front of the judges"
-            ],
-            eligibility: [
-                "Open to all participants from India",
-                "No age or background restrictions",
-                "Individual participation"
-            ],
-            format: [
-                "Performance duration: 90 seconds",
-                "Before performing, contestants rate themselves on their talent",
-                "If judges' average score matches contestant's self-rating, contestant wins",
-                "Any talent accepted: singing, dancing, magic, comedy, etc."
-            ],
             rules: [
                 "90 seconds performance time for each contestant",
                 "Contestants rate themselves before performing",
@@ -365,32 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Acts making audience unnecessarily uncomfortable may lead to disqualification",
                 "📞 COORDINATORS: AFFAN - 7795912239 | SATYAM - 7709551561",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Self-Rating Match (50%) - Match with judges' score",
-                "Performance Quality (30%)",
-                "Audience Engagement (20%)"
             ]
         },
         "game": {
             title: "🎮 FREE FIRE TOURNAMENT",
-            overview: "Competitive gaming event for Free Fire enthusiasts. Squad up and battle it out in the ultimate mobile gaming tournament.",
-            objective: [
-                "Teams must register through official tournament platform",
-                "Teams must submit their roster (player names, IDs, and roles) during registration",
-                "Standard Free Fire gameplay rules apply"
-            ],
-            eligibility: [
-                "Open to all Free Fire players",
-                "Must have updated Free Fire app",
-                "Squad or solo participation"
-            ],
-            format: [
-                "Team Registration through official platform",
-                "Submit roster with player names, IDs, and roles",
-                "Winning Conditions: Most kills and surviving players win",
-                "Standard Free Fire gameplay rules apply"
-            ],
             rules: [
                 "Teams must register through official tournament website/platform",
                 "Submit roster (player names, IDs, roles) during registration",
@@ -401,32 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Rule Violations: May result in penalty or disqualification",
                 "📞 COORDINATORS: DINESH KATRTHICK - 9789295636 | DINESH KUMAR - 9384798595",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Placement Points (50%)",
-                "Kill Points (30%)",
-                "Team Survival (20%)"
             ]
         },
         "eat": {
             title: "🍽️ EAT AS POSSIBLE",
-            overview: "Fun challenge where participants compete to eat the maximum quantity within a time limit. Do you have the appetite?",
-            objective: [
-                "Each participant must sign a waiver acknowledging the risks involved",
-                "Participants should complete the task within the given time",
-                "Participants allowed to drink only 200-500ml water (more = disqualified)"
-            ],
-            eligibility: [
-                "Individual participation only",
-                "Open to all students",
-                "Participants must sign waiver form"
-            ],
-            format: [
-                "Each participant must eat the given food",
-                "Can't or choose not to eat = eliminated",
-                "Judged by completion time or consumption amount",
-                "Water limit: 200-500ml only"
-            ],
             rules: [
                 "Each participant must sign waiver acknowledging risks",
                 "Complete the task within given time",
@@ -436,60 +185,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Judged by time taken to complete OR amount consumed within time",
                 "📞 COORDINATORS: ROHIT - 9384688760 | ARIBA - 8296286049",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Quantity Consumed (70%)",
-                "Time Efficiency (30%)"
             ]
         },
         "explore": {
             title: "🔍 EXPLORE THE TOPIC",
-            overview: "Answer questions on topics drawn from a bowl after shuffling. Topics include Cricket, Movies, Music, Food.",
-            objective: [
-                "Each player draws a paper from the bowl after shuffling",
-                "Bowl contains topics: Cricket, Movies, Music, Food",
-                "After selecting topic, player answers questions related to it"
-            ],
-            eligibility: [
-                "Individual participation only",
-                "Open to all students"
-            ],
-            format: [
-                "Draw paper from bowl (topics: Cricket, Movies, Music, Food)",
-                "Answer questions on the selected topic",
-                "On-the-spot question answering"
-            ],
             rules: [
                 "Each player draws paper from bowl after shuffling",
                 "Bowl contains: Cricket, Movies, Music, Food",
                 "After selecting topic, answer questions related to it",
                 "📞 COORDINATORS: SARAVANAN - 9342439897 | THIRUMURUGAN - 6374689765",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Correctness of Answers (50%)",
-                "Speed of Response (30%)",
-                "Confidence (20%)"
             ]
         },
         "content": {
             title: "📱 CONTENT CREATION",
-            overview: "Create engaging digital content following copyright laws. Always ensure content doesn't violate copyright. Fair use applies to limited situations.",
-            objective: [
-                "Copyright: Always ensure content doesn't violate copyright laws",
-                "If using someone else's work (music, images, videos), need permission or use licensed content",
-                "Violating copyright can result in legal action"
-            ],
-            eligibility: [
-                "Individual or team participation",
-                "Open to all students",
-                "Must understand copyright and fair use"
-            ],
-            format: [
-                "Create content following copyright guidelines",
-                "Use licensed or permission-based materials",
-                "Fair use applies to criticism, commentary, education, or research"
-            ],
             rules: [
                 "COPYRIGHT: Ensure content doesn't violate copyright laws",
                 "If using others' work (music, images, videos) - get permission or use licensed content (e.g., Creative Commons)",
@@ -498,35 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Fair use is a gray area - when in doubt, seek legal advice",
                 "📞 COORDINATORS: RIYAZ - 6379369558 | TINESH - 7305611088",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Creativity (35%)",
-                "Copyright Compliance (30%)",
-                "Content Quality (20%)",
-                "Engagement Potential (15%)"
-            ],
-            downloads: [
-                { label: "Download Domain", url: "https://meredith2k25.pythonanywhere.com/static/Content%20Creation.pdf" }
             ]
         },
         "fit": {
             title: "🏋️ FITNESS CHALLENGE",
-            overview: "Physical endurance competition testing strength and stamina through tasks like push-ups, pull-ups, barbell curls, and bicep curls.",
-            objective: [
-                "Tasks include push-ups, pull-ups, barbell curls, bicep curls",
-                "Counts will be given on spot",
-                "Test physical endurance and strength"
-            ],
-            eligibility: [
-                "Individual participation only",
-                "Open to all students",
-                "No medical conditions that prevent physical activity"
-            ],
-            format: [
-                "Tasks: Push-ups, Pull-ups, Barbell Curls, Bicep Curls",
-                "Counts given on spot by judges",
-                "Multiple physical challenges"
-            ],
             rules: [
                 "Tasks: push-ups, pull-ups, barbell curls, bicep curls need to be performed",
                 "Counts will be given on spot",
@@ -534,11 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Sports attire mandatory",
                 "📞 COORDINATORS: KAVIRAJ - 8122804863 | THIRUMURUGAN - 6374689765",
                 "📧 CONTACT: na@ametuniv.ac.in"
-            ],
-            judging: [
-                "Total Repetitions (60%)",
-                "Form & Technique (25%)",
-                "Endurance (15%)"
             ]
         }
     };

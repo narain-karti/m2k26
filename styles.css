@@ -18,6 +18,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: auto !important;
+    /* FORCE VISIBLE CURSOR EVERYWHERE */
 }
 
 body {
@@ -26,77 +28,11 @@ body {
     font-family: var(--font-body);
     font-weight: 500;
     overflow-x: hidden;
-    cursor: none;
+    cursor: default !important;
+    /* Force default system cursor */
 }
 
-/* Custom Animated Cursor */
-.custom-cursor {
-    position: fixed;
-    width: 24px;
-    height: 24px;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-3px, -3px);
-    /* Adjusted offset for smaller size */
-    transition: transform 0.1s ease-out;
-    filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.6));
-}
-
-.cursor-inner {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #001533 0%, #00f0ff 50%, #001533 100%);
-    background-size: 200% 200%;
-    animation: liquid-flow 3s linear infinite;
-    clip-path: polygon(0% 0%, 100% 70%, 30% 70%, 0% 100%);
-    border: 1px solid rgba(0, 240, 255, 0.8);
-    box-shadow: inset 0 0 8px rgba(0, 240, 255, 0.5);
-}
-
-.custom-cursor.hover .cursor-inner {
-    clip-path: path('M12,2A3,3,0,0,0,9,5V14.28a2,2,0,0,1-3.41,1.41L2.88,13a1,1,0,0,0-1.41,0h0a1,1,0,0,0,0,1.41l4.59,4.59A3,3,0,0,0,8.17,20H16a3,3,0,0,0,3-3V7a3,3,0,0,0-6,0V14H12Z');
-    /* Stylized pointer finger path */
-    width: 32px;
-    height: 32px;
-    transform: translate(-8px, -8px);
-}
-
-.custom-cursor-trail {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0, 240, 255, 0.15);
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.15s ease-out;
-    filter: blur(3px);
-}
-
-@keyframes liquid-flow {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    100% {
-        background-position: 200% 200%;
-    }
-}
-
-@keyframes pulse-cursor {
-
-    0%,
-    100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
-    }
-
-    50% {
-        transform: scale(1.1);
-        filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.9));
-    }
-}
+/* Custom Animated Cursor REMOVED */
 
 #bg-video {
     position: fixed;
@@ -106,7 +42,9 @@ body {
     height: 100vh;
     object-fit: cover;
     z-index: -2;
-    filter: brightness(0.4) contrast(1.1);
+    /* filter property removed to improve performance */
+    opacity: 0.6;
+    /* Simple opacity is cheaper than brightness/contrast filters */
 }
 
 .parallax-bg {
@@ -140,32 +78,7 @@ h1.hero-title.glitch {
 }
 
 /* Glitch Layers */
-h1.hero-title.glitch::before,
-h1.hero-title.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    /* Keep video visible */
-    overflow: hidden;
-}
-
-h1.hero-title.glitch::before {
-    left: 2px;
-    text-shadow: -1px 0 #ff00c1;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim-1 5s infinite linear alternate-reverse;
-}
-
-h1.hero-title.glitch::after {
-    left: -2px;
-    text-shadow: -1px 0 #00fff9;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim-2 5s infinite linear alternate-reverse;
-}
+/* Glitch effect removed for performance */
 
 @keyframes glitch-anim-1 {
     0% {
